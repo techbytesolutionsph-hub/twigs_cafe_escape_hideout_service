@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <th:block th:insert="~{fragments/common/html-fragment-default-meta :: meta}"></th:block>
+        <title>Login Portal | The Twigs</title>
+        <th:block th:insert="~{fragments/common/html-fragment-common-css-links :: commoncss}"></th:block>
+        <link rel="stylesheet" th:href="@{/css/pages/auth/tteh-auth-login-styles.css}"/>
+    </head>
+    <body>
+        <main class="login-page">
+            <th:block th:insert="~{fragments/pages/auth/html-fragment-login-container :: login-container-body}"></th:block>
+        </main>
+
+        <th:block th:insert="~{fragments/common/html-fragment-common-js-scripts :: login-common-js}"></th:block>
+        <script th:src="@{/js/pages/auth/tteh-auth-login-scripts.js}" type="text/javascript"></script>
+    </body>
+</html>

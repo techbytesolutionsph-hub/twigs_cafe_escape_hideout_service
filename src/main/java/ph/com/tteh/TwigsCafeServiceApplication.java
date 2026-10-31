@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TwigsCafeEscapeHideoutServiceApplication {
+public class TwigsCafeServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(TwigsCafeEscapeHideoutServiceApplication.class, args);
+        SpringApplication.run(TwigsCafeServiceApplication.class, args);
     }
 
 }

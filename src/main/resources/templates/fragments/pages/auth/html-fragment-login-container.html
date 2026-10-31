@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <div th:fragment="login-container-body">
+        <section class="login-container">
+
+            <!-- Left Illustration Panel -->
+            <div class="illustration-panel">
+                <div class="illustration-content">
+                    <div class="coffee-illustration">
+
+                        <svg viewBox="0 0 420 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Coffee cup illustration">
+
+                            <!-- Steam -->
+                            <g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round">
+                                <path d="M125 95 C90 45 145 35 125 5"/>
+                                <path d="M205 75 C170 25 225 15 205 -15"/>
+                                <path d="M285 95 C250 45 305 35 285 5"/>
+                            </g>
+
+                            <!-- Sparkles -->
+                            <g fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round">
+                                <path d="M65 185 L85 205 L65 225 L45 205 Z"/>
+                                <path d="M345 185 L360 205 L345 225 L330 205 Z"/>
+                                <path d="M95 315 L110 330 L95 345 L80 330 Z"/>
+                            </g>
+
+                            <!-- Coffee cup -->
+                            <g stroke="currentColor" stroke-width="7" stroke-linejoin="round">
+                                <path d="M105 150 Q210 110 315 150 L290 335 Q210 375 130 335 Z" fill="none"/>
+                                <path d="M105 150 Q210 185 315 150" fill="none"/>
+                                <path d="M95 140 Q210 95 325 140 Q335 165 315 175 Q210 215 105 175 Q85 165 95 140 Z" fill="none"/>
+                                <path d="M125 120 Q210 85 295 120 Q315 135 295 145 Q210 175 125 145 Q105 135 125 120 Z" fill="none"/>
+
+                                <!-- Coffee bean -->
+                                <image href="https://res.cloudinary.com/fe7zqjnd/image/upload/v1793374016/ywxwskqckq9andfqkefh.png"
+                                        x="170" y="230" width="80" height="80" opacity="0.92" preserveAspectRatio="xMidYMid meet"/>
+                            </g>
+
+                            <!-- Coffee bean decoration -->
+                            <g transform="translate(335 290) rotate(-30)" fill="none" stroke="currentColor" stroke-width="6">
+                                <ellipse cx="0" cy="0" rx="28" ry="15"/>
+                                <path d="M-20 0 Q0 -15 20 0 Q0 15 -20 0"/>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div class="illustration-caption">
+                        <h2>Find your coffee.</h2>
+                        <p>Find the perfect coffee to accompany your days.</p>
+                    </div>
+                </div>
+
+                <div class="illustration-footer">
+                    <span>THE TWIGS - ESCAPE & HIDEOUT</span>
+                </div>
+            </div>
+
+            <!-- Right Login Panel -->
+            <div class="login-panel">
+                <div class="login-content">
+                    <div class="brand-logo">
+                        <img src="https://res.cloudinary.com/fe7zqjnd/image/upload/v1793373633/vxerb4wyleldzizbaaa7.jpg" alt="The Twigs Café Logo">
+                    </div>
+
+                    <div class="login-heading">
+                        <h1>Welcome to The Twigs</h1>
+                        <p>Sign in to enjoy your favorite coffee moments.</p>
+                    </div>
+
+                    <form id="loginForm" th:action="@{/login}" method="post">
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+
+                            <div class="input-wrapper">
+                                <i class="bi bi-envelope"></i>
+                                <input type="email" id="email" name="username" placeholder="Enter your email address" autocomplete="off" required>
+                            </div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div class="input-wrapper">
+                                <i class="bi bi-lock"></i>
+                                <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="new-password" required>
+                                <button type="button" class="password-toggle" id="togglePassword" aria-label="Show password">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Remember / Forgot -->
+                        <div class="form-options">
+                            <label class="remember-me">
+                                <input type="checkbox" name="remember-me">
+                                <span>Remember me</span>
+                            </label>
+
+                            <a th:href="@{/forgot-password}" href="/forgot-password"> Forgot password?</a>
+                        </div>
+
+                        <!-- Error Message -->
+                        <div class="login-error" th:if="${param.error}">
+                            Invalid email or password. Please try again.
+                        </div>
+
+                        <div class="login-success" th:if="${param.logout}">
+                            You have successfully logged out.
+                        </div>
+
+                        <!-- Sign In -->
+                        <button type="submit" class="sign-in-button">
+                            <span>Sign in</span>
+                            <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <div class="login-footer">
+                    <p>© The Twigs - Escape & Hideout. Powered by TechByte Solutions.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</html>

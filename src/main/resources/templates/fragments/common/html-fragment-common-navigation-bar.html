@@ -1,0 +1,101 @@
+<!--
+   Template Name: The Twigs - Escape & Hideout Portal Website
+   Version: 1.0.0
+   Author: Glenn Mark Anduiza
+   Email: glenmark.anduiza@gmail.com
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+        <div th:fragment="tteh-common-navigation-bar">
+            <!-- Navigation Bar - Start -->
+            <header class="topbar">
+                <div class="top-left">
+                    <button class="hamburger" id="menuToggle" aria-label="Toggle menu">☰</button>
+                    <div class="site-name">The Twigs</div>
+                    <div class="site-subtitle">Escape &amp; Hideout</div>
+                </div>
+
+                <div class="user">
+                    <div class="notification-wrapper">
+                        <button class="bell" type="button" id="notificationBell"
+                                aria-label="Notifications" title="Notifications"
+                                aria-expanded="false" aria-controls="notificationDropdown">
+                            <i class="fa-regular fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </button>
+
+                        <div class="notification-dropdown" id="notificationDropdown" hidden>
+                            <div class="notification-header">Alerts Center</div>
+
+                            <a class="notification-item" href="#">
+                                <div class="notification-icon bg-primary">
+                                    <i class="fa-solid fa-file-lines"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <div class="notification-date">Today</div>
+                                    <span class="notification-message">
+                                    Your daily sales report is ready to view.
+                                </span>
+                                </div>
+                            </a>
+
+                            <a class="notification-item" href="#">
+                                <div class="notification-icon bg-success">
+                                    <i class="fa-solid fa-money-bill-wave"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <div class="notification-date">Yesterday</div>
+                                    <span class="notification-message">
+                                    A new payment has been recorded.
+                                </span>
+                                </div>
+                            </a>
+
+                            <a class="notification-item" href="#">
+                                <div class="notification-icon bg-warning">
+                                    <i class="fa-solid fa-triangle-exclamation"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <div class="notification-date">October 28, 2026</div>
+                                    <span class="notification-message">
+                                    Low stock alert: Check your coffee bean inventory.
+                                </span>
+                                </div>
+                            </a>
+
+                            <a class="notification-footer" href="#">Show All Alerts</a>
+                        </div>
+                    </div>
+
+                    <div class="user-menu">
+                        <button class="user-trigger" type="button" id="userMenuToggle" aria-expanded="false" aria-controls="userDropdown">
+                            <img src="https://res.cloudinary.com/dx8es7rbm/image/upload/v1777795180/cuichsukdl1fcqwlj39b.jpg" alt="Glen Mark Anduiza" class="avatar">
+                            <span class="user-text">
+                                <span class="user-name">Glen Mark Anduiza</span>
+                                <span class="user-role">
+                                    System Administrator <i class="fa-solid fa-chevron-down"></i>
+                                </span>
+                            </span>
+                        </button>
+
+                        <div class="user-dropdown" id="userDropdown">
+                            <div class="dropdown-header">
+                                <strong>Glen Mark Anduiza</strong>
+                                <span>System Administrator</span>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" data-user-page="Profile"><i class="fa-regular fa-user"></i> Profile</a>
+                            <a href="#" data-user-page="Settings"><i class="fa-solid fa-gear"></i> Settings</a>
+                            <a href="#" data-user-page="Activity Log"><i class="fa-solid fa-clock-rotate-left"></i> Activity Log</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="logout-link" data-user-page="Logout">
+                                <i class="fa-solid fa-right-from-bracket"></i> Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- Navigation Bar - End -->
+        </div>
+</html>

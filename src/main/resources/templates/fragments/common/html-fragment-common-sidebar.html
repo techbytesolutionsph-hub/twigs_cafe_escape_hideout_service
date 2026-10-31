@@ -1,0 +1,120 @@
+<!--
+   Template Name: The Twigs - Escape & Hideout Portal Website
+   Version: 1.0.0
+   Author: Glenn Mark Anduiza
+   Email: glenmark.anduiza@gmail.com
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <aside th:fragment="tteh-common-sidebar" class="sidebar" id="sidebar">
+        <!-- Sidebar - Start -->
+        <div class="brand">
+            <img src="https://res.cloudinary.com/fe7zqjnd/image/upload/v1793374016/ywxwskqckq9andfqkefh.png" alt="The Twigs Escape & Hideout logo"/>
+        </div>
+
+        <nav class="nav" aria-label="Main navigation">
+            <!-- Dashboard -->
+            <a href="#" class="nav-link active" data-page="Dashboard">
+                <span class="ico"><i class="fa-solid fa-gauge-high"></i></span>
+                <span class="nav-label">Dashboard</span>
+            </a>
+
+            <!-- Point of Sale -->
+            <a href="#" class="nav-link" data-page="Point of Sale">
+                <span class="ico"><i class="fa-solid fa-cash-register"></i></span>
+                <span class="nav-label">Point of Sale</span>
+            </a>
+
+            <!-- Orders -->
+            <a href="#" class="nav-link" data-page="Orders">
+                <span class="ico"><i class="fa-solid fa-receipt"></i></span>
+                <span class="nav-label">Orders</span>
+            </a>
+
+            <!-- Menu & Inventory -->
+            <div class="nav-group">
+                <a href="#menuInventorySubmenu" class="nav-link nav-toggle collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="menuInventorySubmenu">
+                    <span class="ico"><i class="fa-solid fa-mug-hot"></i></span>
+                    <span class="nav-label">Menu &amp; Inventory</span>
+                    <i class="fa-solid fa-chevron-down submenu-arrow"></i>
+                </a>
+                <div class="submenu" id="menuInventorySubmenu">
+                    <a href="#" class="submenu-link" data-page="Products">
+                        <i class="fa-solid fa-mug-saucer"></i><span>Products</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Categories">
+                        <i class="fa-solid fa-layer-group"></i><span>Categories</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Inventory / Stock">
+                        <i class="fa-solid fa-boxes-stacked"></i><span>Inventory / Stock</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Stock Adjustments">
+                        <i class="fa-solid fa-sliders"></i><span>Stock Adjustments</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Customers -->
+            <a href="#" class="nav-link" data-page="Customers">
+                <span class="ico"><i class="fa-solid fa-users"></i></span>
+                <span class="nav-label">Customers</span>
+            </a>
+
+            <!-- Reports -->
+            <div class="nav-group">
+                <a href="#reportsSubmenu" class="nav-link nav-toggle collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="reportsSubmenu">
+                    <span class="ico"><i class="fa-solid fa-chart-line"></i></span>
+                    <span class="nav-label">Reports</span>
+                    <i class="fa-solid fa-chevron-down submenu-arrow"></i>
+                </a>
+                <div class="submenu" id="reportsSubmenu">
+                    <a href="#" class="submenu-link" data-page="Sales Report">
+                        <i class="fa-solid fa-peso-sign"></i><span>Sales Report</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Orders Report">
+                        <i class="fa-solid fa-file-invoice"></i><span>Orders Report</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Inventory Report">
+                        <i class="fa-solid fa-box-open"></i><span>Inventory Report</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Voucher Report">
+                        <i class="fa-solid fa-ticket"></i><span>Voucher Report</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Settings -->
+            <div class="nav-group">
+                <a href="#settingsSubmenu" class="nav-link nav-toggle collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="settingsSubmenu">
+                    <span class="ico"><i class="fa-solid fa-gear"></i></span>
+                    <span class="nav-label">Settings</span>
+                    <i class="fa-solid fa-chevron-down submenu-arrow"></i>
+                </a>
+                <div class="submenu" id="settingsSubmenu">
+                    <a href="#" class="submenu-link" data-page="General Settings">
+                        <i class="fa-solid fa-sliders"></i><span>General Settings</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="User Management">
+                        <i class="fa-solid fa-user-gear"></i><span>User Management</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Roles & Permissions">
+                        <i class="fa-solid fa-shield-halved"></i><span>Roles &amp; Permissions</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Voucher Settings">
+                        <i class="fa-solid fa-ticket"></i><span>Voucher Settings</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Sidebar Message -->
+        <div class="sidebar-card d-flex">
+            <p class="text-center text-xs mb-0">
+                <strong>&copy; <script>document.write(new Date().getFullYear());</script>
+                    The Twigs - Escape & Hideout. Powered by TechByte Solutions.
+                </strong>
+            </p>
+        </div>
+        <!-- Sidebar - End -->
+    </aside>
+</html>
