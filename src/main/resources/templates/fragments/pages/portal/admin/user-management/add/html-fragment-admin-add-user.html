@@ -1,0 +1,154 @@
+<!--
+   Template Name: The Twigs - Escape & Hideout Portal Website
+   Version: 1.0.0
+   Author: Glenn Mark Anduiza
+   Email: glenmark.anduiza@gmail.com
+-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <div th:fragment="staff-admin-add-user">
+        <!-- Add User - START -->
+        <form id="add-client-form" autocomplete="off" class="needs-validation">
+            <div class="client-form-layout">
+                <div class="client-form-main">
+                    <section class="client-section-card mb-2">
+                        <div class="client-section-header">
+                            <div class="section-number">1</div>
+                            <div class="section-header-content">
+                                <h3>User Account Information</h3>
+                                <p>Enter the user's account credentials, email address, role, and status.</p>
+                            </div>
+                        </div>
+                        <div class="client-section-body">
+                            <div class="row px-2">
+                                <div class="col-12 col-md-6 mt-2 mb-2">
+                                    <label for="user-username" class="form-label text-sm fw-bold text-gray-700">Username</label>
+                                    <input type="text" class="form-control text-sm variation-sku" id="user-username" placeholder="Enter username" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a username.
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 mt-2 mb-2">
+                                    <label for="user-password" class="form-label text-sm fw-bold text-gray-700">
+                                        Password
+                                    </label>
+
+                                    <div class="input-group">
+                                        <input type="text" class="form-control text-sm" id="user-password" placeholder="Click Generate" readonly required>
+
+                                        <button class="btn btn-outline-primary"
+                                                type="button"
+                                                id="generate-password-btn">
+                                            <i class="bi bi-arrow-repeat"></i>
+                                        </button>
+                                    </div>
+                                    <div class="password-error-message" id="password-error">
+                                        Please generate a password.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row px-2">
+                                <div class="col-12 col-md-6 mt-2 mb-2">
+                                    <label for="user-email" class="form-label text-sm fw-bold text-gray-700">Email</label>
+                                    <input type="text" class="form-control text-sm variation-sku" id="user-email" placeholder="Enter user email" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid email address.
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 mt-2 mb-2">
+                                    <label for="user-role" class="form-label text-sm fw-bold text-gray-800">User Role</label>
+                                    <select class="form-control text-sm variation-discount-type" id="user-role" required>
+                                        <option value="" selected disabled>Select a role</option>
+                                        <option value="SUPER_ADMIN">Super Admin</option>
+                                        <option value="ADMIN">Administrator</option>
+                                        <option value="PARTNER">Partner</option>
+                                        <option value="OPERATIONS_MANAGER">Operations Manager</option>
+                                        <option value="HEAD_COOK">Head Cook</option>
+                                        <option value="KITCHEN_STAFF">Kitchen Staff</option>
+                                        <option value="SERVICE_CREW">Service Crew</option>
+                                        <option value="BARISTA">Barista</option>
+                                        <option value="CASHIER">Cashier</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select a user role.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row px-2">
+                                <div class="col-12 col-md-6 mt-2 mb-2">
+                                    <label for="user-status" class="form-label text-sm fw-bold text-gray-800">Status</label>
+                                    <select class="form-control text-sm variation-discount-type" id="user-status" required>
+                                        <option value="" selected disabled>Select a status</option>
+                                        <option value="ACTIVE">Active</option>
+                                        <option value="INACTIVE">Inactive</option>
+                                        <option value="SUSPENDED">Suspended</option>
+                                        <option value="DISABLED">Disabled</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select a status.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="client-form-side">
+                    <section class="client-photo-card mb-4">
+                        <div class="client-photo-header">
+                            <h3>User Photo</h3>
+                            <p>Upload a user profile photo.</p>
+                        </div>
+
+                        <div class="client-photo-body">
+                            <div id="photoDropZone" class="photo-drop-zone">
+                                <div id="photoPlaceholder" class="photo-placeholder">
+                                    <div class="photo-icon">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+
+                                    <div class="photo-upload-text">
+                                        Click to upload or drag and drop
+                                    </div>
+
+                                    <div class="photo-format">
+                                        JPG, PNG (Max. 1MB)
+                                    </div>
+                                </div>
+
+                                <img id="clientPhotoPreview" class="client-photo-preview" alt="Client photo preview">
+                                <input type="file" id="clientPhoto" name="profileImage" accept="image/jpeg,image/png,.jpg,.jpeg,.png" hidden>
+                            </div>
+
+                            <button type="button" id="choosePhotoBtn" class="choose-photo-btn">
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                Choose File
+                            </button>
+
+                            <button type="button" id="removePhotoBtn" class="remove-photo-btn">
+                                <i class="fa-solid fa-trash-can"></i>
+                                Remove photo
+                            </button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <div class="client-section-footer mb-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <a th:href="@{/app/portal/admin/user-management}" class="btn btn-submit fw-semibold" id="back-btn">
+                        <i class="fa-solid fa-arrow-left mr-2"></i>
+                        Back
+                    </a>
+
+                    <a th:href="@{/api/v1/account/admin/create}" class="btn btn-submit fw-semibold" id="submit-btn" data-method="POST">
+                        <i class="fa-solid fa-user-plus mr-2"></i>
+                        Add User
+                    </a>
+                </div>
+            </div>
+        </form>
+        <!-- Add User - END -->
+    </div>
+</html>

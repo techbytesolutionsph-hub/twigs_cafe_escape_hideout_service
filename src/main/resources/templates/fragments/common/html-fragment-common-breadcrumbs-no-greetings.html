@@ -9,7 +9,7 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-    <div th:fragment="staff-breadcrumb-section(pageTitle, breadcrumbs)">
+    <div th:fragment="staff-breadcrumb-section(pageTitle, pageSubTitle, breadcrumbs)">
 
         <!-- Breadcrumb Section - START -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4 page-header">
@@ -19,7 +19,7 @@
                 <h1 class="page-title text-gray-800 font-weight-bold" th:text="${pageTitle}">
                     Dashboard
                 </h1>
-                <p class="mb-2 text-xs text-gray-600 font-weight-bold">
+                <p class="mb-2 text-xs text-gray-600 font-weight-bold" th:text="${pageSubTitle}">
                     Create user accounts, assign roles, and manage system access.
                 </p>
             </div>

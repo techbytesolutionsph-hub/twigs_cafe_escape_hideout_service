@@ -164,6 +164,12 @@ public class UserAccountService {
                         HttpStatus.NOT_FOUND.value(),
                         "User not found: " + request.getUsername()));
 
+        if (Set.of(UserStatus.INACTIVE, UserStatus.SUSPENDED, UserStatus.DISABLED).contains(request.getStatus())
+                && request.getRole().equals(UserRole.SUPER_ADMIN)) {
+            loggingService.error(uuid, getClass().getName(),"Super Admin account cannot be disabled.", HttpStatus.FORBIDDEN.value());
+            throw new ServiceException(HttpStatus.FORBIDDEN.value(), "Super Admin account cannot be disabled.");
+        }
+
         /* Check duplicate email */
         if (!Objects.equals(appUser.getEmail(), request.getEmail())) {
 

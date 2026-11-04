@@ -3,6 +3,7 @@ package ph.com.tteh.service.api.front;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ph.com.tteh.dto.admin.AppUserResponse;
+import ph.com.tteh.exception.ServiceException;
 import ph.com.tteh.service.api.admin.UserAccountService;
 
 import java.util.List;
@@ -15,5 +16,9 @@ public class PortalFrontService {
 
     public List<AppUserResponse> getAllUsers(){
         return userAccountService.getAllUsers();
+    }
+
+    public AppUserResponse findByUsername(String username) throws ServiceException {
+        return userAccountService.findByUsername(username);
     }
 }

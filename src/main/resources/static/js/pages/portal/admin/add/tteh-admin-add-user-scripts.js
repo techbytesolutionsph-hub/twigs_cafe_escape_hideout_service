@@ -37,7 +37,7 @@ $(document).ready(function () {
         const method = $addUser.data('method');
         const callback = "/app/portal/admin/user-management";
 
-        let request = buildRequest()
+        let request = buildRequest();
 
         submitRequest(request, url, method, callback);
     });
