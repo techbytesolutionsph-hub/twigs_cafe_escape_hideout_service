@@ -6,7 +6,7 @@
 -->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <aside th:fragment="tteh-common-sidebar" class="sidebar" id="sidebar">
+    <aside th:fragment="tteh-common-sidebar(nav)" class="sidebar" id="sidebar">
         <!-- Sidebar - Start -->
         <div class="brand">
             <img src="https://res.cloudinary.com/fe7zqjnd/image/upload/v1793374016/ywxwskqckq9andfqkefh.png" alt="The Twigs Escape & Hideout logo"/>
@@ -14,13 +14,13 @@
 
         <nav class="nav" aria-label="Main navigation">
             <!-- Dashboard -->
-            <a href="#" class="nav-link active" data-page="Dashboard">
+            <a th:href="@{/app/portal/dashboard}" th:class="${nav == 'dashboard'} ? 'nav-link active' : 'nav-link'" data-page="Dashboard">
                 <span class="ico"><i class="fa-solid fa-gauge-high"></i></span>
                 <span class="nav-label">Dashboard</span>
             </a>
 
             <!-- Point of Sale -->
-            <a href="#" class="nav-link" data-page="Point of Sale">
+            <a th:href="@{/app/portal/point-of-sale}" th:class="${nav == 'pos'} ? 'nav-link active' : 'nav-link'" data-page="Point of Sale">
                 <span class="ico"><i class="fa-solid fa-cash-register"></i></span>
                 <span class="nav-label">Point of Sale</span>
             </a>
@@ -60,6 +60,23 @@
                 <span class="nav-label">Customers</span>
             </a>
 
+            <!-- Time &amp; Attendance -->
+            <div class="nav-group">
+                <a href="#timeManagementSubmenu" class="nav-link nav-toggle collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="timeManagementSubmenu">
+                    <span class="ico"><i class="fas fa-user-clock"></i></span>
+                    <span class="nav-label">Time &amp; Attendance</span>
+                    <i class="fa-solid fa-chevron-down submenu-arrow"></i>
+                </a>
+                <div class="submenu" id="timeManagementSubmenu">
+                    <a href="#" class="submenu-link" data-page="Products">
+                        <i class="fa-solid fa-calendar-check"></i><span>Timesheet</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Categories">
+                        <i class="fa-solid fa-calendar-days"></i><span>Leave Request</span>
+                    </a>
+                </div>
+            </div>
+
             <!-- Reports -->
             <div class="nav-group">
                 <a href="#reportsSubmenu" class="nav-link nav-toggle collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="reportsSubmenu">
@@ -83,6 +100,39 @@
                 </div>
             </div>
 
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                System Administration
+            </div>
+
+            <!-- Settings -->
+            <div class="nav-group">
+                <a href="#userManagementSubmenu" th:class="${nav == 'admin'} ? 'nav-link nav-toggle collapsed active' : 'nav-link nav-toggle collapsed'" data-toggle="collapse" aria-expanded="false" aria-controls="userManagementSubmenu">
+                    <span class="ico"> <i class="fa-solid fa-user-shield"></i></span>
+                    <span class="nav-label">Administration</span>
+                    <i class="fa-solid fa-chevron-down submenu-arrow"></i>
+                </a>
+                <div class="submenu" id="userManagementSubmenu">
+                    <a th:href="@{/app/portal/admin/user-management}" th:class="${nav == 'admin'} ? 'submenu-link active' : 'submenu-link'" data-page="User Management">
+                        <i class="fa-solid fa-user-gear"></i><span>User Management</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Roles & Permissions">
+                        <i class="fa-solid fa-shield-halved"></i><span>Roles &amp; Permissions</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                General Settings
+            </div>
+
             <!-- Settings -->
             <div class="nav-group">
                 <a href="#settingsSubmenu" class="nav-link nav-toggle collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="settingsSubmenu">
@@ -93,12 +143,6 @@
                 <div class="submenu" id="settingsSubmenu">
                     <a href="#" class="submenu-link" data-page="General Settings">
                         <i class="fa-solid fa-sliders"></i><span>General Settings</span>
-                    </a>
-                    <a href="#" class="submenu-link" data-page="User Management">
-                        <i class="fa-solid fa-user-gear"></i><span>User Management</span>
-                    </a>
-                    <a href="#" class="submenu-link" data-page="Roles & Permissions">
-                        <i class="fa-solid fa-shield-halved"></i><span>Roles &amp; Permissions</span>
                     </a>
                     <a href="#" class="submenu-link" data-page="Voucher Settings">
                         <i class="fa-solid fa-ticket"></i><span>Voucher Settings</span>

@@ -54,16 +54,16 @@ public class UserAccountService {
     @Transactional
     public CommonResponse createUserAccount(String uuid, CreateUserRequest request) throws ServiceException {
 
-        /* Check existing email */
-        if (appUserRepository.existsByEmail(request.getEmail())) {
-            loggingService.error(uuid, getClass().getName(), "Email already exists.", HttpStatus.CONFLICT.value());
-            throw new ServiceException(HttpStatus.CONFLICT.value(), "Email already exists.");
-        }
-
         /* Check existing username */
         if (appUserRepository.existsByUsername(request.getUsername())) {
             loggingService.error(uuid, getClass().getName(), "Username already exists.", HttpStatus.CONFLICT.value());
             throw new ServiceException(HttpStatus.CONFLICT.value(), "Username already exists.");
+        }
+
+        /* Check existing email */
+        if (appUserRepository.existsByEmail(request.getEmail())) {
+            loggingService.error(uuid, getClass().getName(), "Email already exists.", HttpStatus.CONFLICT.value());
+            throw new ServiceException(HttpStatus.CONFLICT.value(), "Email already exists.");
         }
 
         /* Create User Account */

@@ -67,24 +67,22 @@
                         <p>Sign in to enjoy your favorite coffee moments.</p>
                     </div>
 
-                    <form id="loginForm" th:action="@{/login}" method="post">
-
+                    <form>
                         <!-- Email -->
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-
+                            <label for="staff-username">Username</label>
                             <div class="input-wrapper">
                                 <i class="bi bi-envelope"></i>
-                                <input type="email" id="email" name="username" placeholder="Enter your email address" autocomplete="off" required>
+                                <input type="text" id="staff-username" name="username" placeholder="Enter your username" autocomplete="off" required>
                             </div>
                         </div>
 
                         <!-- Password -->
                         <div class="form-group">
-                            <label for="password">Password</label>
+                            <label for="staff-password">Password</label>
                             <div class="input-wrapper">
                                 <i class="bi bi-lock"></i>
-                                <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="new-password" required>
+                                <input type="password" id="staff-password" name="password" placeholder="Enter your password" autocomplete="new-password" required>
                                 <button type="button" class="password-toggle" id="togglePassword" aria-label="Show password">
                                     <i class="bi bi-eye"></i>
                                 </button>
@@ -102,7 +100,7 @@
                         </div>
 
                         <!-- Error Message -->
-                        <div class="login-error" th:if="${param.error}">
+                        <div id="login-error" class="login-error" style="display: none;">
                             Invalid email or password. Please try again.
                         </div>
 
@@ -111,8 +109,14 @@
                         </div>
 
                         <!-- Sign In -->
-                        <button type="submit" class="sign-in-button">
-                            <span>Sign in</span>
+                        <button type="submit" class="sign-in-button" id="login-btn">
+                            <span id="login-spinner"
+                                  class="spinner-border spinner-border-sm mr-2"
+                                  style="display:none;"
+                                  role="status"
+                                  aria-hidden="true"></span>
+
+                            <span id="login-btn-text">Sign in</span>
                             <i class="bi bi-arrow-right"></i>
                         </button>
                     </form>

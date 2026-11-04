@@ -1,0 +1,132 @@
+.modern-popup-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,.45);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:99999;
+    animation:fadeIn .4s ease;
+}
+
+.modern-popup{
+    width:320px;
+    height:240px;
+    background:#fff;
+    border-radius:28px;
+    padding:22px 26px 18px;
+    box-shadow:0 20px 60px rgba(15,23,42,.14),
+    0 8px 20px rgba(15,23,42,.08);
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    overflow:hidden;
+    animation:fadeIn .6s ease, slideDown .9s cubic-bezier(0.16,1,0.3,1);
+}
+
+.modern-popup-icon{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:-15px;
+    margin-bottom:10px;
+}
+
+lord-icon{
+    width:100px;
+    height:100px;
+    display:block;
+}
+
+.modern-popup-title{
+    font-size:1.25rem;
+    font-weight:700;
+    color:#0f172a;
+    margin-top: -2px;
+}
+
+.modern-popup-message{
+    font-size:.85rem;
+    line-height:1.7;
+    color:#64748b;
+    max-width:310px;
+    margin:5px auto 14px;
+}
+
+.modern-popup-actions{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-top:auto;
+}
+
+.popup-btn{
+    width:100px;
+    height:38px;
+    border:none;
+    border-radius:12px;
+    font-size:.9rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.popup-btn-cancel{
+    background: linear-gradient(to bottom, #8A96A8 0%, #6E7F95 55%, #5E6F84 100%);
+    border-color: #4F5E73;
+    color: #fff;
+}
+
+.popup-btn-cancel:hover{
+    background: linear-gradient(to bottom, #8A96A8 0%, #6E7F95 55%, #5E6F84 100%);
+    transform: translateY(-2px);
+    border-color: #4F5E73;
+    color: #fff;
+}
+
+.popup-btn-confirm{
+    background: var(--green-900) !important;
+    border-color: #007E83;
+    color: #fff !important;
+    box-shadow: 0 10px 24px rgba(0, 151, 157, .28);
+    transition: all .2s ease;
+}
+
+.popup-btn-confirm:hover{
+    background: var(--green-900) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(0, 151, 157, .38);
+    color: #fff;
+}
+
+.popup-btn-ok{
+    background: var(--green-900) !important;
+    border-color: #007E83;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 151, 157, 0.28);
+    transition: all .2s ease;
+}
+
+.popup-btn-ok:hover{
+    background: var(--green-800) !important;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0, 151, 157, 0.38);
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+@keyframes slideDown{
+    from{
+        opacity:0;
+        transform:translateY(-40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}

@@ -1,0 +1,53 @@
+<!--
+   Template Name: The Twigs - Escape & Hideout Portal Website
+   Version: 1.0.0
+   Author: Glenn Mark Anduiza
+   Email: glenmark.anduiza@gmail.com
+-->
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <div th:fragment="staff-breadcrumb-section(pageTitle, breadcrumbs)">
+
+        <!-- Breadcrumb Section - START -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4 page-header">
+
+            <!-- Page Title -->
+            <div>
+                <h1 class="page-title text-gray-800 font-weight-bold" th:text="${pageTitle}">
+                    Dashboard
+                </h1>
+                <p class="mb-2 text-xs text-gray-600 font-weight-bold">
+                    Welcome back,
+                    <span class="text-info" sec:authentication="principal.staffFirstName">
+                        User
+                    </span>!
+                </p>
+            </div>
+
+            <!-- Breadcrumb -->
+            <nav aria-label="Breadcrumb" class="breadcrumb-box">
+                <ol class="breadcrumb bg-transparent p-0 m-0">
+
+                    <li class="breadcrumb-item"
+                        th:each="crumb, stat : ${breadcrumbs}"
+                        th:classappend="${stat.last} ? 'active'">
+
+                        <!-- Last Item -->
+                        <span th:if="${stat.last}" th:text="${crumb.name}">
+                    </span>
+
+                        <!-- Clickable Item -->
+                        <a th:if="${!stat.last}"
+                           th:href="@{${crumb.url}}"
+                           th:text="${crumb.name}">
+                        </a>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+        <!-- Breadcrumb Section - END -->
+    </div>
+</html>

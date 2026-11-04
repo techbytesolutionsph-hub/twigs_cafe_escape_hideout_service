@@ -30,15 +30,19 @@ $(document).ready(function () {
     });
 
     $(document).on("click", ".nav a[data-page]", function(event) {
-        event.preventDefault();
         const $link = $(this);
-        const page = $link.data("page");
+        const href = $link.attr("href");
+
         $(".nav a.nav-link, .nav a.submenu-link").removeClass("active");
         $link.addClass("active");
-        if (page && page !== "Dashboard") {
-            notify(page + ": sample navigation selected.");
+
+        if ($(window).width() <= 760) {
+            closeSidebar();
         }
-        if ($(window).width() <= 760) closeSidebar();
+
+        if (href && href !== "#") {
+            window.location.href = href;
+        }
     });
 
     $(document).on("click", "[data-action]", function() {
@@ -63,5 +67,18 @@ $(document).ready(function () {
 
     $overlay.on("click", function() {
         closeSidebar();
+    });
+
+    const $app = $(".app");
+    const $menuToggle = $("#menuToggle");
+
+    if (!$app.length || !$menuToggle.length) return;
+
+    $menuToggle.on("click", function () {
+
+        if ($(window).width() >= 769) {
+            $app.toggleClass("sidebar-collapsed");
+        }
+
     });
 });

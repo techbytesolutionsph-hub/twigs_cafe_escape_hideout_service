@@ -70,10 +70,10 @@
 
                     <div class="user-menu">
                         <button class="user-trigger" type="button" id="userMenuToggle" aria-expanded="false" aria-controls="userDropdown">
-                            <img src="https://res.cloudinary.com/dx8es7rbm/image/upload/v1777795180/cuichsukdl1fcqwlj39b.jpg" alt="Glen Mark Anduiza" class="avatar">
+                            <img th:src="@{${#authentication.principal.profileImageUrl}}" alt="Glen Mark Anduiza" class="avatar">
                             <span class="user-text">
-                                <span class="user-name">Glen Mark Anduiza</span>
-                                <span class="user-role">
+                                <span class="user-name" sec:authentication="principal.staffFirstName">Glen Mark Anduiza</span>
+                                <span class="user-role" sec:authentication="principal.position">
                                     System Administrator <i class="fa-solid fa-chevron-down"></i>
                                 </span>
                             </span>
@@ -89,13 +89,43 @@
                             <a href="#" data-user-page="Settings"><i class="fa-solid fa-gear"></i> Settings</a>
                             <a href="#" data-user-page="Activity Log"><i class="fa-solid fa-clock-rotate-left"></i> Activity Log</a>
                             <div class="dropdown-divider"></div>
-                            <a href="#" class="logout-link" data-user-page="Logout">
+                            <a href="#"
+                               class="logout-link"
+                               data-user-page="Logout"
+                               data-bs-toggle="modal"
+                               data-bs-target="#logoutModal">
                                 <i class="fa-solid fa-right-from-bracket"></i> Logout
                             </a>
                         </div>
                     </div>
                 </div>
             </header>
+
+            <!-- Logout Modal-->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Confirm Logout</h5>
+                            <button class="close logout-close-btn" type="button" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-sm text-gray-800">End your session? Click <strong>Logout</strong> to continue.</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-cancel text-sm" type="button" data-bs-dismiss="modal">
+                                <i class="bi bi-x-circle-fill text-m font-bold mr-1"></i>
+                                Cancel
+                            </button>
+                            <a class="btn btn-logout text-sm" data-dismiss="modal" id="sign-out-btn">
+                                <i class="bi bi-box-arrow-right text-m font-bold mr-1"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- Navigation Bar - End -->
         </div>
 </html>
