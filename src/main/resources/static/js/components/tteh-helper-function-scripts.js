@@ -146,41 +146,33 @@ function initializeClientPhotoUpload() {
 
         const formData = new FormData();
         formData.append('file', file);
-        formData.append('upload_preset', 'lllcimageuploads');
 
         try {
-            const response = await fetch(
-                'https://api.cloudinary.com/v1_1/fe7zqjnd/image/upload', {
-                    method: 'POST',
-                    body: formData
-                }
-            );
 
-            if (!response.ok) {
-                throw new Error(`Cloudinary upload failed: ${response.status}`);
-            }
+            const response = await fetch('/api/v1/cloudinary/upload', {
+                method: 'POST',
+                body: formData
+            });
 
             const data = await response.json();
 
-            if (!data.secure_url) {
-                throw new Error('Cloudinary did not return a secure URL.');
-            }
-
-            if (!data.public_id) {
-                throw new Error('Cloudinary did not return a public ID.');
+            if (!response.ok) {
+                throw new Error(data.message || 'Photo upload failed.');
             }
 
             return {
                 secure_url: data.secure_url,
                 public_id: data.public_id
             };
+
         } catch (error) {
+
             console.error('Cloudinary upload error:', error);
-            showErrorPopup('Error','Photo upload failed. Please try again.');
+            showErrorPopup('Error', 'Photo upload failed. Please try again.');
 
             return null;
-        } finally {
 
+        } finally {
             setPhotoUploadingState(false);
         }
     }
@@ -191,47 +183,28 @@ function initializeClientPhotoUpload() {
             return false;
         }
 
-        const timestamp = Math.round(Date.now() / 1000);
-        const stringToSign = `invalidate=true&public_id=${publicId}&timestamp=${timestamp}`;
-        const signature = await generateCloudinarySignature(stringToSign);
-
-        const formData = new FormData();
-        formData.append('public_id', publicId);
-        formData.append('timestamp', String(timestamp));
-        formData.append('api_key', '316519133398881');
-        formData.append('signature', signature);
-        formData.append('invalidate', 'true');
-
         try {
-
             const response = await fetch(
-                'https://api.cloudinary.com/v1_1/fe7zqjnd/image/destroy', {
-                    method: 'POST',
-                    body: formData
+                `/api/v1/cloudinary/delete-image?publicId=${encodeURIComponent(publicId)}`,
+                {
+                    method: 'DELETE'
                 }
             );
 
             const data = await response.json();
+
             console.log('Cloudinary Delete Response:', data);
 
-            if (!response.ok) {
-                throw new Error(data.error?.message || 'Cloudinary deletion failed.');
+            if (!response.ok || data.result !== 'ok') {
+                throw new Error(data.message || 'Cloudinary deletion failed.');
             }
 
-            return data.result === 'ok';
+            return true;
 
         } catch (error) {
             console.error('Cloudinary photo deletion error:', error);
             return false;
         }
-    }
-
-    async function generateCloudinarySignature(stringToSign) {
-        const apiSecret = 'U4IC3ORH4Pla3qIRbN1gxrp2VHQ';
-
-        return CryptoJS
-            .SHA1(stringToSign + apiSecret)
-            .toString(CryptoJS.enc.Hex);
     }
 
     async function removeClientPhoto() {

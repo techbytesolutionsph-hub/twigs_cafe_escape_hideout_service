@@ -854,7 +854,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 5;
+    z-index: 2;
     height: 40px;
     background-color: var(--green-700) !important;
     color: #fff;
