@@ -10,76 +10,62 @@ function initializeClientPhotoUpload() {
     const $removeButton = $('#removePhotoBtn');
     const $profileImageUrl = $('#profileImageUrl');
 
-    $chooseButton.on('click', function(event) {
+    /* Choose photo */
+    $chooseButton.add($dropZone).on('click', function(event) {
+        if ($(event.target).closest('#removePhotoBtn').length) return;
+        if ($(event.target).is('#clientPhoto')) return;
+
         event.preventDefault();
         $photoInput.trigger('click');
     });
 
-    $dropZone.on('click', function(event) {
-        if ($(event.target).is('#clientPhoto')) {
-            return;
+    /* File selection */
+    $photoInput.on('change', async function() {
+        const file = this.files[0];
+        if (file) await processClientPhoto(file);
+    });
+
+    /* Drag and drop */
+    $dropZone.on({
+        dragover: function(event) {
+            event.preventDefault();
+            event.originalEvent.dataTransfer.dropEffect = 'copy';
+            $dropZone.addClass('drag-over');
+        },
+
+        dragleave: function(event) {
+            event.preventDefault();
+            $dropZone.removeClass('drag-over');
+        },
+
+        drop: async function(event) {
+            event.preventDefault();
+            $dropZone.removeClass('drag-over');
+
+            const file = event.originalEvent.dataTransfer.files[0];
+            if (!file) return;
+
+            try {
+                const dataTransfer = new DataTransfer();
+                dataTransfer.items.add(file);
+                $photoInput[0].files = dataTransfer.files;
+            } catch (error) {
+                console.warn('Unable to assign dropped file.', error);
+            }
+
+            await processClientPhoto(file);
         }
-
-        $photoInput.trigger('click');
     });
 
-    $photoInput.on('change', async function(event) {
-
-        const file = event.target.files[0];
-
-        if (!file) {
-            return;
-        }
-
-        await processClientPhoto(file);
-    });
-
-    $dropZone.on('dragover', function(event) {
-        event.preventDefault();
-        event.originalEvent.dataTransfer.dropEffect = 'copy';
-        $dropZone.addClass('drag-over');
-    });
-
-    $dropZone.on('dragleave', function(event) {
-        event.preventDefault();
-        $dropZone.removeClass('drag-over');
-    });
-
-    $dropZone.on('drop', async function(event) {
-
-        event.preventDefault();
-        $dropZone.removeClass('drag-over');
-
-        const files = event.originalEvent.dataTransfer.files;
-
-        if (!files || files.length === 0) {
-            return;
-        }
-
-        const file = files[0];
-
-        try {
-            const dataTransfer = new DataTransfer();
-            dataTransfer.items.add(file);
-            $photoInput[0].files = dataTransfer.files;
-
-        } catch (error) {
-            console.warn('Unable to assign dropped file to input.', error);
-        }
-
-        await processClientPhoto(file);
-    });
-
+    /* Remove photo */
     $removeButton.on('click', async function(event) {
         event.preventDefault();
         event.stopPropagation();
 
-        console.log('Remove Photo clicked');
-        console.log('Uploaded Photo:', uploadedPhoto);
-
         await removeClientPhoto();
     });
 
+    /* Process selected photo */
     async function processClientPhoto(file) {
 
         if (!validateClientPhoto(file)) {
@@ -109,46 +95,37 @@ function initializeClientPhotoUpload() {
             public_id: data.public_id
         };
 
-        console.log('Uploaded Photo:', uploadedPhoto);
-        console.log('Cloudinary Public ID:', uploadedPhoto.public_id);
-        console.log('Cloudinary Secure URL:', uploadedPhoto.secure_url);
-
         $profileImageUrl.val(data.secure_url);
         $preview.attr('src', data.secure_url).show();
+
         $placeholder.hide();
         $chooseButton.hide();
         $removeButton.css('display', 'flex');
     }
 
+    /* Validate photo */
     function validateClientPhoto(file) {
 
-        const allowedTypes = [
-            'image/jpeg',
-            'image/png'
-        ];
-
-        if (!allowedTypes.includes(file.type)) {
-            showErrorPopup('Error','Please select a valid JPG or PNG image.');
+        if (!['image/jpeg', 'image/png'].includes(file.type)) {
+            showErrorPopup('Error', 'Please select a valid JPG or PNG image.');
             return false;
         }
 
-        const maxSize = 1024 * 1024;
-
-        if (file.size > maxSize) {
-            showErrorPopup('Error','The maximum allowed image size is 1 MB.');
+        if (file.size > 1024 * 1024) {
+            showErrorPopup('Error', 'The maximum allowed image size is 1 MB.');
             return false;
         }
 
         return true;
     }
 
+    /* Upload photo */
     async function uploadClientPhotoToCloudinary(file) {
 
         const formData = new FormData();
         formData.append('file', file);
 
         try {
-
             const response = await fetch('/api/v1/cloudinary/upload', {
                 method: 'POST',
                 body: formData
@@ -157,90 +134,69 @@ function initializeClientPhotoUpload() {
             const data = await response.json();
 
             if (!response.ok) {
-                throw new Error(data.message || 'Photo upload failed.');
+                showErrorPopup("Error", data.message || 'Photo upload failed.');
             }
 
-            return {
-                secure_url: data.secure_url,
-                public_id: data.public_id
-            };
-
+            return data;
         } catch (error) {
-
-            console.error('Cloudinary upload error:', error);
+            console.error('Photo upload error:', error);
             showErrorPopup('Error', 'Photo upload failed. Please try again.');
-
             return null;
-
         } finally {
             setPhotoUploadingState(false);
         }
     }
 
+    /* Delete photo from Cloudinary */
     async function deleteClientPhotoFromCloudinary(publicId) {
 
-        if (!publicId) {
-            return false;
-        }
+        if (!publicId) return false;
 
         try {
             const response = await fetch(
                 `/api/v1/cloudinary/delete-image?publicId=${encodeURIComponent(publicId)}`,
-                {
-                    method: 'DELETE'
-                }
+                { method: 'DELETE' }
             );
 
             const data = await response.json();
 
-            console.log('Cloudinary Delete Response:', data);
-
             if (!response.ok || data.result !== 'ok') {
-                throw new Error(data.message || 'Cloudinary deletion failed.');
+                showErrorPopup("Error", data.message || 'Cloudinary deletion failed.');
             }
 
             return true;
-
         } catch (error) {
-            console.error('Cloudinary photo deletion error:', error);
+            console.error('Photo deletion error:', error);
             return false;
         }
     }
 
+    /* Remove photo */
     async function removeClientPhoto() {
 
-        const publicId = uploadedPhoto?.public_id;
-        console.log('Removing Cloudinary Photo:', publicId);
+        if (uploadedPhoto?.public_id) {
 
-        if (publicId) {
             $removeButton.prop('disabled', true);
 
-            const deleted = await deleteClientPhotoFromCloudinary(publicId);
+            const deleted = await deleteClientPhotoFromCloudinary(
+                uploadedPhoto.public_id
+            );
 
             if (!deleted) {
                 $removeButton.prop('disabled', false);
-                showErrorPopup('Error','Unable to remove the photo. Please try again.');
+                showErrorPopup('Error', 'Unable to remove the photo. Please try again.');
                 return;
             }
-
-            console.log('Photo successfully deleted from Cloudinary.');
         }
 
-        $photoInput.val('');
-        $profileImageUrl.val('');
-        $preview.attr('src', '').hide();
-
-        $placeholder.show();
-        $chooseButton.show();
-        $removeButton.hide();
-        $dropZone.removeClass('drag-over');
-        uploadedPhoto = null;
-
-        setPhotoUploadingState(false);
+        resetClientPhoto();
     }
 
+    /* Reset photo UI */
     function resetClientPhoto() {
 
+        uploadedPhoto = null;
+
         $photoInput.val('');
         $profileImageUrl.val('');
         $preview.attr('src', '').hide();
@@ -249,21 +205,21 @@ function initializeClientPhotoUpload() {
         $chooseButton.show();
         $removeButton.hide();
         $dropZone.removeClass('drag-over');
-        uploadedPhoto = null;
 
         setPhotoUploadingState(false);
     }
 
+    /* Uploading state */
     function setPhotoUploadingState(isUploading) {
 
-        if (isUploading) {
-            $chooseButton.prop('disabled', true).addClass('uploading');
-            $removeButton.prop('disabled', true);
-            $chooseButton.html(`<i class="fa-solid fa-spinner fa-spin"></i> Uploading...`);
-        } else {
-            $chooseButton.prop('disabled', false).removeClass('uploading');
-            $removeButton.prop('disabled', false);
-            $chooseButton.html(`<i class="fa-solid fa-cloud-arrow-up"></i>Choose File`);
-        }
+        $chooseButton
+            .prop('disabled', isUploading)
+            .toggleClass('uploading', isUploading)
+            .html(isUploading
+                ? '<i class="fa-solid fa-spinner fa-spin"></i> Uploading...'
+                : '<i class="fa-solid fa-cloud-arrow-up"></i> Choose File'
+            );
+
+        $removeButton.prop('disabled', isUploading);
     }
 }

@@ -13,6 +13,14 @@
         </div>
 
         <nav class="nav" aria-label="Main navigation">
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Operations
+            </div>
+
             <!-- Dashboard -->
             <a th:href="@{/app/portal/dashboard}" th:class="${nav == 'dashboard'} ? 'nav-link active' : 'nav-link'" data-page="Dashboard">
                 <span class="ico"><i class="fa-solid fa-gauge-high"></i></span>
@@ -96,6 +104,123 @@
                     </a>
                     <a href="#" class="submenu-link" data-page="Voucher Report">
                         <i class="fa-solid fa-ticket"></i><span>Voucher Report</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Finance & Accounting
+            </div>
+
+            <!-- Finance & Accounting -->
+            <div class="nav-group">
+                <a href="#financeAccountingSubmenu" class="nav-link nav-toggle collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="financeAccountingSubmenu">
+                    <span class="ico"><i class="fa-solid fa-landmark"></i></span>
+                    <span class="nav-label">Finance</span>
+                    <i class="fa-solid fa-chevron-down submenu-arrow"></i>
+                </a>
+                <div class="submenu" id="financeAccountingSubmenu">
+                    <a href="#" class="submenu-link" data-page="Finance Dashboard">
+                        <i class="fa-solid fa-chart-pie"></i><span>Finance Dashboard</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Income & Expenses">
+                        <i class="fa-solid fa-money-bill-transfer"></i><span>Income & Expenses</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Cash Flow">
+                        <i class="fa-solid fa-water"></i><span>Cash Flow</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Accounts Receivable">
+                        <i class="fa-solid fa-hand-holding-dollar"></i><span>Accounts Receivable</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Accounts Payable">
+                        <i class="fa-solid fa-file-invoice-dollar"></i><span>Accounts Payable</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Financial Reports">
+                        <i class="fa-solid fa-file-invoice"></i><span>Financial Reports</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                HR Management
+            </div>
+
+            <!-- HR Management -->
+            <div class="nav-group">
+                <a href="#hrManagementSubmenu" class="nav-link nav-toggle collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="hrManagementSubmenu">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span class="nav-label">HR Management</span>
+                    <i class="fa-solid fa-chevron-down submenu-arrow"></i>
+                </a>
+                <div class="submenu" id="hrManagementSubmenu">
+                    <a href="#" class="submenu-link" data-page="HR Dashboard">
+                        <i class="fa-solid fa-chart-pie"></i><span>HR Dashboard</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Employee Management">
+                        <i class="fa-solid fa-users"></i><span>Employee Management</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Employee Attendance">
+                        <i class="fa-solid fa-calendar-check"></i><span>Employee Attendance</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Employee Leave">
+                        <i class="fa-solid fa-calendar-minus"></i><span>Employee Leave</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Employee Payroll">
+                        <i class="fa-solid fa-money-bill-wave"></i><span>Employee Payroll</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Recruitment -->
+            <div class="nav-group">
+                <a href="#recruitmentSubmenu" class="nav-link nav-toggle collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="recruitmentSubmenu">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <span class="nav-label">Recruitment</span>
+                    <i class="fa-solid fa-chevron-down submenu-arrow"></i>
+                </a>
+                <div class="submenu" id="recruitmentSubmenu">
+                    <a href="#" class="submenu-link" data-page="Recruitment Dashboard">
+                        <i class="fa-solid fa-chart-pie"></i><span>Recruitment Dashboard</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Candidates">
+                        <i class="fa-solid fa-users"></i><span>Candidates</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Applicant Interview">
+                        <i class="fa-solid fa-calendar-check"></i><span>Applicant Interview</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Offer Management">
+                        <i class="fa-solid fa-file-signature"></i><span>Offer Management</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Employee Onboarding">
+                        <i class="fa-solid fa-user-check"></i><span>Employee Onboarding</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Payroll Management -->
+            <div class="nav-group">
+                <a href="#payrollSubmenu" class="nav-link nav-toggle collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="payrollSubmenu">
+                    <i class="fa-solid fa-money-check-dollar"></i>
+                    <span class="nav-label">Payroll Management</span>
+                    <i class="fa-solid fa-chevron-down submenu-arrow"></i>
+                </a>
+                <div class="submenu" id="payrollSubmenu">
+                    <a href="#" class="submenu-link" data-page="Payroll Processing">
+                        <i class="fa-solid fa-calculator"></i><span>Payroll Processing</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Timesheets">
+                        <i class="fa-solid fa-clock"></i><span>Timesheets</span>
+                    </a>
+                    <a href="#" class="submenu-link" data-page="Payslips">
+                        <i class="fa-solid fa-file-invoice-dollar"></i><span>Payslips</span>
                     </a>
                 </div>
             </div>

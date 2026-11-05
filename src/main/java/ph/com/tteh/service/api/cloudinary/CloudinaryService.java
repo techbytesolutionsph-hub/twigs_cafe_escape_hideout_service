@@ -23,10 +23,9 @@ import java.util.TreeMap;
 public class CloudinaryService {
 
     private final CloudinaryPropertiesConfig config;
+    private final RestTemplate restTemplate;
 
     private static final long MAX_FILE_SIZE = 1024 * 1024;
-
-    private final RestTemplate restTemplate = new RestTemplate();
 
     public Map<?, ?> uploadPhoto(MultipartFile file) throws Exception {
 
