@@ -256,12 +256,16 @@ function initializeDocumentUpload() {
         const resumeUrl = $('#selectedFileName a').attr('href');
         console.log("resumeUrl : " + resumeUrl);
 
-        const publicId = uploadRequest?.public_id
+        let publicId = uploadRequest?.public_id
             || (resumeUrl
                 ? resumeUrl.split('/upload/')[1]
                     ?.replace(/^v\d+\//, '')
                     .replace(/\.[^/.]+$/, '')
                 : null);
+
+        if (publicId && !/\.[^/.]+$/.test(publicId)) {
+            publicId += '.pdf';
+        }
 
         console.log("public id : " + publicId);
 

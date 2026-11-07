@@ -84,14 +84,6 @@ public class PortalViewController {
         return "pages/portal/admin/user-management/update/index";
     }
 
-    @GetMapping(value = "/hr-recruitment/candidates/add-candidate")
-    public String addCandidatePage(Model model) {
-        this.setupPage(model, "recruitment", "Add Candidate",
-                "Manage candidates and track recruitment progress.");
-
-        return "pages/portal/hr-admin/recruitment/candidate/add/index";
-    }
-
     /* User Management - END */
     @GetMapping(value = "/hr-recruitment")
     public String hrRecruitmentDashboardPage(Model model) {
@@ -113,6 +105,14 @@ public class PortalViewController {
         model.addAttribute("kpi", kpi);
 
         return "pages/portal/hr-admin/recruitment/candidate/index";
+    }
+
+    @GetMapping(value = "/hr-recruitment/candidates/add-candidate")
+    public String addCandidatePage(Model model) {
+        this.setupPage(model, "recruitment", "Add Candidate",
+                "Manage candidates and track recruitment progress.");
+
+        return "pages/portal/hr-admin/recruitment/candidate/add/index";
     }
 
     @GetMapping(value = "/hr-recruitment/candidates/edit-candidate")

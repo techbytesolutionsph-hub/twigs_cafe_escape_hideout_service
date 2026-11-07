@@ -1,0 +1,197 @@
+<!--
+   Template Name: The Twigs - Escape & Hideout Portal Website
+   Version: 1.0.0
+   Author: Glenn Mark Anduiza
+   Email: glenmark.anduiza@gmail.com
+-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <div th:fragment="staff-add-candidate">
+        <!-- Add Candidate - START -->
+        <form id="add-candidate-form" autocomplete="off" class="needs-validation">
+            <div class="client-form-layout">
+                <div class="client-form-main">
+                    <section class="client-section-card mb-2">
+                        <div class="client-section-header">
+                            <div class="section-icon">
+                                <i class="bi bi-person-vcard me-2"></i>
+                            </div>
+                            <div class="section-header-content">
+                                <h3>Applicant Information</h3>
+                                <p>Enter the applicant's basic personal details and contact information.</p>
+                            </div>
+                        </div>
+                        <div class="client-section-body">
+                            <div class="row px-2">
+                                <div class="col-12 col-md-6 mt-2 mb-2">
+                                    <label for="candidate-firstname" class="form-label text-sm fw-bold text-gray-700">First name<span class="required">*</span></label>
+                                    <input type="text" class="form-control text-sm" id="candidate-firstname" placeholder="Enter first name" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a firstname.
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 mt-2 mb-2">
+                                    <label for="candidate-middlename" class="form-label text-sm fw-bold text-gray-700">Middle name<span class="required">*</span></label>
+                                    <input type="text" class="form-control text-sm" id="candidate-middlename" placeholder="Enter middle name" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a middle name.
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 mt-2 mb-2">
+                                    <label for="candidate-lastname" class="form-label text-sm fw-bold text-gray-700">Last name<span class="required">*</span></label>
+                                    <input type="text" class="form-control text-sm" id="candidate-lastname" placeholder="Enter last name" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a lastname.
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 mt-2 mb-2">
+                                    <label for="candidate-suffix" class="form-label text-sm fw-bold text-gray-700">Suffix (Ex. Jr.)</label>
+                                    <input type="text" class="form-control text-sm" id="candidate-suffix" placeholder="Enter suffix">
+                                </div>
+
+                                <div class="col-12 col-md-6 mt-2 mb-2">
+                                    <label for="candidate-email" class="form-label text-sm fw-bold text-gray-700">Email<span class="required">*</span></label>
+                                    <input type="email" class="form-control text-sm" id="candidate-email" placeholder="Enter email address" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid email address.
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 mt-2 mb-2">
+                                    <label for="candidate-phone" class="form-label text-sm fw-bold text-gray-700">Phone<span class="required">*</span></label>
+                                    <input type="text" class="form-control text-sm" id="candidate-phone" placeholder="Enter phone number" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid phone number.
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 mt-2 mb-2">
+                                    <label for="candidate-applied-job" class="form-label text-sm fw-bold text-gray-700">Applied Job<span class="required">*</span></label>
+                                    <select class="form-control text-sm" id="candidate-applied-job" required>
+                                        <option value="" selected disabled>Select applied job</option>
+                                        <option value="OPERATIONS_MANAGER">Operations Manager</option>
+                                        <option value="HEAD_COOK">Head Cook</option>
+                                        <option value="KITCHEN_STAFF">Kitchen Staff</option>
+                                        <option value="SERVICE_CREW">Service Crew</option>
+                                        <option value="BARISTA">Barista</option>
+                                        <option value="CASHIER">Cashier</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select an applied job.
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 mt-2 mb-2">
+                                    <label for="candidate-location" class="form-label text-sm fw-bold text-gray-700">Location<span class="required">*</span></label>
+                                    <input type="text" class="form-control text-sm" id="candidate-location" placeholder="e.g. Catanauan Quezon" required>
+                                    <div class="invalid-feedback">
+                                        Please enter the applicant's location.
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 mt-1 mb-2">
+                                    <label for="candidate-applied-date" class="text-sm fw-bold text-gray-700">Applied Date<span class="required">*</span></label>
+                                    <div class="date-input-wrapper">
+                                        <input type="text" id="candidate-applied-date" class="form-control" placeholder="Select applied date" required>
+                                        <i class="bi bi-calendar-event calendar-icon"></i>
+                                        <div class="invalid-feedback">
+                                            Please select applied date.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 mt-2 mb-2">
+                                    <label for="candidate-experience" class="form-label text-sm fw-bold text-gray-700">Experience (yrs)<span class="required">*</span></label>
+                                    <input type="number" class="form-control text-sm" id="candidate-experience" placeholder="0" min="0" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid number of years of experience (0 or greater).
+                                    </div>
+                                </div>
+
+                                <div class="col-12 mt-2 mb-2">
+                                    <label for="candidate-notes" class="form-label text-sm fw-bold text-gray-700">Notes</label>
+                                    <textarea class="form-control text-sm" id="candidate-notes" name="notes" rows="4" placeholder="Enter additional notes about the candidate..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="client-form-side">
+                    <section class="client-photo-card mb-4">
+                        <div class="client-photo-header">
+                            <h3>Candidate Resume</h3>
+                            <p>Upload the candidate's resume for review.</p>
+                        </div>
+
+                        <div class="upload-progress-card">
+                            <div class="upload-content">
+                                <div class="file-upload-column">
+                                    <div id="fileDropZone" class="file-drop-zone">
+                                        <input type="file" id="progressReportFile" class="file-input" accept=".pdf,.doc,.docx">
+                                        <div id="uploadPlaceholder" class="upload-placeholder">
+                                            <div class="upload-cloud-icon">
+                                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                            </div>
+
+                                            <div class="upload-main-text">
+                                                Drag and drop your file here
+                                            </div>
+
+                                            <div class="upload-or">or</div>
+
+                                            <button type="button" id="chooseFileBtn" class="choose-file-btn">
+                                                Choose File
+                                            </button>
+
+                                            <div class="upload-info">
+                                                Accepted format: PDF
+                                            </div>
+                                        </div>
+
+                                        <!-- Selected File -->
+                                        <div id="selectedFileContainer" class="selected-file-container" style="display: none;">
+                                            <div class="selected-file-icon">
+                                                <i class="fa-regular fa-file-lines"></i>
+                                            </div>
+
+                                            <div class="selected-file-details">
+                                                <div id="selectedFileName" class="selected-file-name"> </div>
+                                                <div id="selectedFileSize" class="selected-file-size"></div>
+                                            </div>
+
+                                            <button type="button" id="removeFileBtn" class="remove-file-btn" title="Remove file">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <div class="client-section-footer mb-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <button type="button" class="btn btn-back fw-semibold"
+                            id="back-client-btn"
+                            data-url="/app/portal/hr-recruitment/candidates">
+                        <i class="fa-solid fa-arrow-left mr-2"></i>
+                        Back
+                    </button>
+
+                    <button type="button" class="btn btn-submit fw-semibold" id="add-candidate-btn">
+                        <i class="fa-solid fa-user-plus mr-2"></i>
+                        Add Candidate
+                    </button>
+                </div>
+            </div>
+
+        </form>
+        <!-- Add Candidate - END -->
+    </div>
+</html>

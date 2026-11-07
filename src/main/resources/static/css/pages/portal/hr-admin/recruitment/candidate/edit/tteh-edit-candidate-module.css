@@ -1,0 +1,218 @@
+/* UPLOAD CARD */
+.upload-progress-card {
+    padding: 22px 24px 18px;
+}
+
+.upload-content {
+    display: grid;
+    grid-template-columns: 275px minmax(0, 1fr);
+    gap: 30px;
+}
+/* FILE DROP ZONE */
+
+.file-drop-zone {
+    position: relative;
+    min-height: 150px;
+    border: 1px dashed var(--green-700) !important;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #f9fdfd, #f2fafb);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    overflow: hidden;
+}
+
+.file-drop-zone:hover,
+.file-drop-zone.drag-over {
+    border-color: var(--client-primary);
+    background: #E8EFE3;
+}
+
+.file-drop-zone.has-error {
+    border-color: #d9534f;
+}
+
+.file-drop-zone:not(.has-error) {
+    border: 1.5px dashed #79dbe2;
+}
+
+.file-drop-zone.dragover {
+    border-color: var(--lllc-primary);
+    background: #e8fafa;
+}
+
+.file-input {
+    display: none;
+}
+/* UPLOAD PLACEHOLDER */
+
+.upload-placeholder {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 10px;
+}
+
+.upload-cloud-icon {
+    color: var(--green-700) !important;
+    font-size: 40px;
+    line-height: 1;
+    margin-bottom: 15px;
+}
+
+.upload-main-text {
+    color: #09647d;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.upload-or {
+    color: #6584a3;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 11px;
+}
+
+.choose-file-btn {
+    border: none;
+    min-width: 150px;
+    height: 40px;
+    padding: 0 25px;
+    border-radius: 9px;
+    background: var(--green-700) !important;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 9px rgba(0, 151, 157, 0.15);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.choose-file-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 13px rgba(0, 151, 157, 0.22);
+}
+
+.upload-info {
+    color: #6684a5;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.8;
+    margin-top: 17px;
+}
+
+.upload-info span {
+    font-size: 12px;
+}
+/* SELECTED FILE */
+
+.selected-file-container {
+    width: calc(100% - 45px);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(45, 88, 111, 0.08);
+}
+
+.selected-file-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--green-700) !important;
+    background: #e7f8f8;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.selected-file-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.selected-file-name {
+    color: var(--text-dark);
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.selected-file-size {
+    color: var(--text-light);
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+.remove-file-btn {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff0f0;
+    color: #e25555;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.remove-file-btn:hover {
+    background: #e25555;
+    color: #ffffff;
+}
+
+.remove-file-btn i {
+    font-size: 14px;
+    line-height: 1;
+}
+
+@media (max-width: 767.98px) {
+
+    .client-form-side {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100%;
+    }
+
+    .client-photo-card,
+    .upload-progress-card,
+    .upload-content,
+    .file-upload-column,
+    .file-drop-zone,
+    #uploadPlaceholder {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .upload-content {
+        display: block;
+    }
+
+    .file-upload-column {
+        flex: 0 0 100%;
+    }
+
+    #uploadPlaceholder {
+        min-width: 0;
+    }
+}
+@media (max-width: 575px) {
+    .upload-content {
+        grid-template-columns: 285px minmax(0, 1fr);
+    }
+}

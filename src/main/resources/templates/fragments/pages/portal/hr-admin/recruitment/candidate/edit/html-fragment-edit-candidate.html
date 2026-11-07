@@ -1,0 +1,260 @@
+<!--
+   Template Name: The Twigs - Escape & Hideout Portal Website
+   Version: 1.0.0
+   Author: Glenn Mark Anduiza
+   Email: glenmark.anduiza@gmail.com
+-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <div th:fragment="staff-edit-candidate(applicant)">
+        <!-- Edit Candidate - START -->
+        <form id="edit-candidate-form" autocomplete="off" class="needs-validation">
+            <div class="client-form-layout">
+                <div class="client-form-main">
+                    <section class="client-section-card mb-2">
+                        <div class="client-section-header">
+                            <div class="section-icon">
+                                <i class="bi bi-person-vcard me-2"></i>
+                            </div>
+                            <div class="section-header-content">
+                                <h3>Applicant Information</h3>
+                                <p>Enter the applicant's basic personal details and contact information.</p>
+                            </div>
+                        </div>
+                        <div class="client-section-body">
+                            <div class="row px-2">
+                                <input type="hidden" id="applicantId" name="applicantId" th:value="${applicant.id}">
+                                <input type="hidden" id="existingResumeLink" th:value="${applicant.resumeLink}">
+                                <input type="hidden" id="existingResumeFilename" th:value="${applicant.resumeFilename}">
+
+                                <div class="col-12 col-md-6 mt-2 mb-2">
+                                    <label for="candidate-firstname" class="form-label text-sm fw-bold text-gray-700">First name<span class="required">*</span></label>
+                                    <input type="text" class="form-control text-sm" id="candidate-firstname" th:value="${applicant.firstName}" placeholder="Enter first name" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a firstname.
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 mt-2 mb-2">
+                                    <label for="candidate-middlename" class="form-label text-sm fw-bold text-gray-700">Middle name<span class="required">*</span></label>
+                                    <input type="text" class="form-control text-sm" id="candidate-middlename" th:value="${applicant.middleName}" placeholder="Enter middle name" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a middle name.
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 mt-2 mb-2">
+                                    <label for="candidate-lastname" class="form-label text-sm fw-bold text-gray-700">Last name<span class="required">*</span></label>
+                                    <input type="text" class="form-control text-sm" id="candidate-lastname" th:value="${applicant.lastName}" placeholder="Enter last name" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a lastname.
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 mt-2 mb-2">
+                                    <label for="candidate-suffix" class="form-label text-sm fw-bold text-gray-700">Suffix (Ex. Jr.)</label>
+                                    <input type="text" class="form-control text-sm" id="candidate-suffix" th:value="${applicant.suffix}" placeholder="Enter suffix">
+                                </div>
+
+                                <div class="col-12 col-md-6 mt-2 mb-2">
+                                    <label for="candidate-email" class="form-label text-sm fw-bold text-gray-700">Email<span class="required">*</span></label>
+                                    <input type="email" class="form-control text-sm" id="candidate-email" th:value="${applicant.email}" placeholder="Enter email address" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid email address.
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 mt-2 mb-2">
+                                    <label for="candidate-phone" class="form-label text-sm fw-bold text-gray-700">Phone<span class="required">*</span></label>
+                                    <input type="text" class="form-control text-sm" id="candidate-phone" th:value="${applicant.phoneNumber}" placeholder="Enter phone number" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid phone number.
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 mt-2 mb-2">
+                                    <label for="candidate-applied-job" class="form-label text-sm fw-bold text-gray-700">
+                                        Applied Job <span class="required">*</span>
+                                    </label>
+
+                                    <select class="form-control text-sm" id="candidate-applied-job" name="appliedJob" required>
+                                        <option value="" disabled
+                                                th:selected="${applicant.appliedJob == null}">
+                                            Select applied job
+                                        </option>
+                                        <option value="OPERATIONS_MANAGER"
+                                                th:selected="${applicant.appliedJob != null and applicant.appliedJob.toString() == 'OPERATIONS_MANAGER'}">
+                                            Operations Manager
+                                        </option>
+                                        <option value="HEAD_COOK"
+                                                th:selected="${applicant.appliedJob != null and applicant.appliedJob.toString() == 'HEAD_COOK'}">
+                                            Head Cook
+                                        </option>
+                                        <option value="KITCHEN_STAFF"
+                                                th:selected="${applicant.appliedJob != null and applicant.appliedJob.toString() == 'KITCHEN_STAFF'}">
+                                            Kitchen Staff
+                                        </option>
+                                        <option value="SERVICE_CREW"
+                                                th:selected="${applicant.appliedJob != null and applicant.appliedJob.toString() == 'SERVICE_CREW'}">
+                                            >Service Crew
+                                        </option>
+                                        <option value="BARISTA"
+                                                th:selected="${applicant.appliedJob != null and applicant.appliedJob.toString() == 'BARISTA'}">
+                                            Barista
+                                        </option>
+                                        <option value="CASHIER"
+                                                th:selected="${applicant.appliedJob != null and applicant.appliedJob.toString() == 'CASHIER'}">
+                                            Cashier
+                                        </option>
+                                    </select>
+
+                                    <div class="invalid-feedback">Please select an applied job.</div>
+                                </div>
+
+                                <div class="col-12 col-md-6 mt-2 mb-2">
+                                    <label for="candidate-location" class="form-label text-sm fw-bold text-gray-700">Location<span class="required">*</span></label>
+                                    <input type="text" class="form-control text-sm" id="candidate-location" th:value="${applicant.location}" placeholder="e.g. Catanauan Quezon" required>
+                                    <div class="invalid-feedback">
+                                        Please enter the applicant's location.
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 mt-1 mb-2">
+                                    <label for="candidate-applied-date" class="text-sm fw-bold text-gray-700">Applied Date<span class="required">*</span></label>
+                                    <div class="date-input-wrapper">
+                                        <input type="text" id="candidate-applied-date" th:value="${applicant.appliedDate}" class="form-control" placeholder="Select applied date" required>
+                                        <i class="bi bi-calendar-event calendar-icon"></i>
+                                        <div class="invalid-feedback">
+                                            Please select applied date.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6 mt-2 mb-2">
+                                    <label for="candidate-experience" class="form-label text-sm fw-bold text-gray-700">Experience (yrs)<span class="required">*</span></label>
+                                    <input type="number" class="form-control text-sm" id="candidate-experience" th:value="${applicant.experience}" placeholder="0" min="0" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid number of years of experience (0 or greater).
+                                    </div>
+                                </div>
+
+                                <div class="col-12 mt-2 mb-2">
+                                    <label for="candidate-notes" class="form-label text-sm fw-bold text-gray-700">Notes</label>
+                                    <textarea class="form-control text-sm" id="candidate-notes" name="notes" rows="4"
+                                              th:text="${applicant.notes}" placeholder="Enter additional notes about the candidate..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="client-form-side">
+                    <section class="client-photo-card mb-4">
+                        <div class="client-photo-header">
+                            <h3>Candidate Resume</h3>
+                            <p>Upload the candidate's resume for review.</p>
+                        </div>
+
+                        <div class="upload-progress-card">
+
+                            <div class="upload-content">
+                                <div class="file-upload-column">
+                                    <div id="fileDropZone" class="file-drop-zone">
+
+                                        <input type="file"
+                                               id="progressReportFile"
+                                               class="file-input"
+                                               accept=".pdf,.doc,.docx">
+
+                                        <!-- Upload Placeholder -->
+                                        <div id="uploadPlaceholder"
+                                             class="upload-placeholder"
+                                             th:style="${applicant.resumeLink != null and !applicant.resumeLink.isEmpty()} ? 'display: none;' : ''">
+
+                                            <div class="upload-cloud-icon">
+                                                <i class="fa-solid fa-cloud-arrow-up"></i>
+                                            </div>
+
+                                            <div class="upload-main-text">
+                                                Drag and drop your file here
+                                            </div>
+
+                                            <div class="upload-or">or</div>
+
+                                            <button type="button"
+                                                    id="chooseFileBtn"
+                                                    class="choose-file-btn">
+                                                Choose File
+                                            </button>
+
+                                            <div class="upload-info">
+                                                Accepted formats: PDF
+                                            </div>
+                                        </div>
+
+                                        <!-- Existing Resume -->
+                                        <div id="selectedFileContainer"
+                                             class="selected-file-container"
+                                             th:style="${applicant.resumeLink != null and !applicant.resumeLink.isEmpty()} ? '' : 'display: none;'">
+
+                                            <div class="selected-file-icon">
+                                                <i class="fa-regular fa-file-pdf"></i>
+                                            </div>
+
+                                            <div class="selected-file-details">
+                                                <div id="selectedFileName" class="selected-file-name">
+                                                    <a th:if="${applicant.resumeLink != null and !applicant.resumeLink.isEmpty()}"
+                                                       th:href="${applicant.resumeLink}"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       th:text="${applicant.resumeFilename != null and !applicant.resumeFilename.isEmpty()
+                                                       ? applicant.resumeFilename
+                                                       : 'View resume'}">
+                                                        View resume
+                                                    </a>
+                                                </div>
+
+                                                <div id="selectedFileSize" class="selected-file-size"
+                                                     th:text="${applicant.resumeLink != null and !applicant.resumeLink.isEmpty()
+                                                     ? 'Existing resume'
+                                                     : ''}">
+                                                </div>
+                                            </div>
+
+                                            <button type="button"
+                                                    id="removeFileBtn"
+                                                    class="remove-file-btn"
+                                                    title="Remove file">
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <div class="client-section-footer mb-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <button type="button" class="btn btn-back fw-semibold"
+                            id="back-client-btn"
+                            data-url="/app/portal/hr-recruitment/candidates">
+                        <i class="fa-solid fa-arrow-left mr-2"></i>
+                        Back
+                    </button>
+
+                    <button type="button" class="btn btn-submit fw-semibold" id="update-candidate-btn">
+                        <i class="fa-solid fa-user-plus mr-2"></i>
+                        Update Candidate
+                    </button>
+                </div>
+            </div>
+
+        </form>
+        <!-- Edit Candidate - END -->
+    </div>
+</html>

@@ -11,6 +11,8 @@
         <title th:text="${title}">Sample Page | The Twigs</title>
         <th:block th:insert="~{fragments/common/html-fragment-common-css-links :: commoncss}"></th:block>
         <link rel="stylesheet" th:href="@{/css/common/tteh-common-css-styles.css}"/>
+        <link th:href="@{/css/components/tteh-default-add-view-edit-module.css}" rel="stylesheet" type="text/css">
+        <link th:href="@{/css/pages/portal/hr-admin/recruitment/candidate/edit/tteh-edit-candidate-module.css}" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div class="app">
@@ -30,17 +32,16 @@
                 <!-- Page Heading and Breadcrumbs - End -->
 
                 <!-- Main Content - START -->
-
+                <th:block th:insert="~{fragments/pages/portal/hr-admin/recruitment/candidate/edit/html-fragment-edit-candidate :: staff-edit-candidate(${applicant})}"></th:block>
                 <!-- Main Content - END -->
 
                 <!-- Footer - START -->
                 <th:block th:insert="~{fragments/common/html-fragment-common-footer :: tteh-common-footer}"></th:block>
                 <!-- Footer - END -->
             </main>
-
         </div>
 
         <th:block th:insert="~{fragments/common/html-fragment-common-js-scripts :: login-common-js}"></th:block>
-        <script th:src="@{/js/pages/portal/dashboard/tteh-dashboard-main-scripts.js}" type="text/javascript"></script>
+        <script th:src="@{/js/pages/portal/hr-admin/recruitment/candidate/edit/tteh-edit-candidate-scripts.js}" type="text/javascript"></script>
     </body>
 </html>

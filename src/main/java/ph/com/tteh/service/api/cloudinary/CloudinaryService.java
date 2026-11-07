@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 import ph.com.tteh.configuration.properties.CloudinaryPropertiesConfig;
 import ph.com.tteh.exception.ServiceException;
+import ph.com.tteh.service.util.logging.LoggingService;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -23,6 +24,7 @@ public class CloudinaryService {
 
     private final CloudinaryPropertiesConfig config;
     private final RestTemplate restTemplate;
+    private final LoggingService loggingService;
 
     private static final long MAX_FILE_SIZE = 1024 * 1024;
     private static final long MAX_DOCUMENT_SIZE = 5 * 1024 * 1024;
@@ -181,7 +183,8 @@ public class CloudinaryService {
         if (publicId == null || publicId.isBlank()) {
             throw new IllegalArgumentException("Document public ID is required.");
         }
-
+        loggingService.info("", this.getClass().getName(), "", "publicId: " + publicId);
+        loggingService.info("", this.getClass().getName(), "", "url: " + config.buildDeleteDocumentUrl());
         return this.deleteResource(publicId, "raw", config.buildDeleteDocumentUrl());
     }
 
@@ -250,6 +253,7 @@ public class CloudinaryService {
         );
 
         Map<?, ?> result = response.getBody();
+        loggingService.info("", this.getClass().getName(), "", "result: " + result);
 
         if (result == null || !"ok".equals(result.get("result"))) {
             throw new ServiceException("Cloudinary resource deletion failed.");

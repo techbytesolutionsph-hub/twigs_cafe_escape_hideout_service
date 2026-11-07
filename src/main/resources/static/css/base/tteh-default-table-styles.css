@@ -236,9 +236,9 @@
 /* Active page */
 .dataTables_wrapper div.dataTables_paginate ul.pagination
 .page-item.active .page-link {
-    background-color: #24543E;
-    border-color: #24543E;
-    color: #FFF;
+    background-color: #24543E !important;
+    border-color: #24543E !important;
+    color: #FFFFFF !important;
     font-weight: 700;
     box-shadow: 0 2px 5px rgba(36, 84, 62, 0.18);
 }
