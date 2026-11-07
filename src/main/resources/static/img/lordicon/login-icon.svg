@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="430" height="430" style="width:100%;height:100%;transform:translate3d(0,0,0);content-visibility:visible" viewBox="0 0 430 430">
+    <defs>
+        <clipPath id="d">
+            <path d="M0 0h430v430H0z" />
+        </clipPath>
+        <clipPath id="i">
+            <path d="M0 0h430v430H0z" />
+        </clipPath>
+        <clipPath id="h">
+            <path d="M0 0h430v430H0z" />
+        </clipPath>
+        <clipPath id="f">
+            <path d="M0 0h430v430H0z" />
+        </clipPath>
+        <clipPath id="e">
+            <path d="M0 0h430v430H0z" />
+        </clipPath>
+        <mask id="k" mask-type="alpha">
+            <use xmlns:ns1="http://www.w3.org/1999/xlink" ns1:href="#a" />
+        </mask>
+        <mask id="j" mask-type="alpha">
+            <use xmlns:ns2="http://www.w3.org/1999/xlink" ns2:href="#b" />
+        </mask>
+        <mask id="g" mask-type="alpha">
+            <use xmlns:ns3="http://www.w3.org/1999/xlink" ns3:href="#c" />
+        </mask>
+        <g id="a" style="display:none">
+            <path />
+            <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+        <g id="b" style="display:none">
+            <path />
+            <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+        <g id="c" style="display:none">
+            <path />
+            <path fill-opacity="0" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+    </defs>
+    <g clip-path="url(#d)">
+        <g fill="none" clip-path="url(#e)" style="display:none">
+            <path class="primary" style="display:none" />
+            <path class="primary" style="display:none" />
+            <path class="secondary" style="display:none" />
+        </g>
+        <g clip-path="url(#f)" style="display:none">
+            <path fill="none" class="primary" style="display:none" />
+            <g mask="url(#g)" style="display:none">
+                <path fill="none" class="primary" />
+            </g>
+            <path fill="none" class="secondary" style="display:none" />
+        </g>
+        <g fill="none" stroke-linecap="round" stroke-linejoin="round" clip-path="url(#h)" style="display:block">
+            <path stroke="#121331" stroke-width="7.36" d="M50.04.75c0 27.614-22.386 50-50 50s-50-22.386-50-50 22.386-50 50-50 50 22.386 50 50z" class="primary" style="display:block" transform="translate(217.437 214.557) scale(3.37264)" />
+            <path stroke="#121331" stroke-width="4.1" d="m-12.533 30.57.066-.801c0-7.742 6.277-14.019 14.019-14.019h16.031c7.742 0 14.019 6.277 14.019 14.019l-.066.801" class="primary" style="display:block" transform="translate(164.457 164.133) scale(5.53113)" />
+            <path stroke="#08A88A" stroke-width="4.1" d="M15.673-9.749a10.107 10.107 0 0 1 2.373 6.522s0 0 0 0c0 5.604-4.544 10.148-10.148 10.148S-2.25 2.377-2.25-3.227 2.293-13.375 7.898-13.375c3.121 0 5.913 1.409 7.775 3.626" class="secondary" style="display:block" transform="translate(173.694 182.11) scale(5.53113)" />
+        </g>
+        <g clip-path="url(#i)" style="display:none">
+            <g mask="url(#j)" style="display:none">
+                <path fill="none" class="secondary" />
+            </g>
+            <g mask="url(#k)" style="display:none">
+                <path fill="none" class="primary" />
+            </g>
+            <path fill="none" class="primary" style="display:none" />
+        </g>
+    </g>
+</svg>

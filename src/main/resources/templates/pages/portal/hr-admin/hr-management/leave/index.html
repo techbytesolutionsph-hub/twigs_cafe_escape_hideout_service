@@ -1,0 +1,46 @@
+<!--
+   Template Name: The Twigs - Escape & Hideout Portal Website
+   Version: 1.0.0
+   Author: Glenn Mark Anduiza
+   Email: glenmark.anduiza@gmail.com
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <th:block th:insert="~{fragments/common/html-fragment-default-meta :: meta}"></th:block>
+        <title th:text="${title}">Sample Page | The Twigs</title>
+        <th:block th:insert="~{fragments/common/html-fragment-common-css-links :: commoncss}"></th:block>
+        <link rel="stylesheet" th:href="@{/css/common/tteh-common-css-styles.css}"/>
+    </head>
+    <body>
+        <div class="app">
+            <!-- Sidebar - START -->
+            <th:block th:insert="~{fragments/common/html-fragment-common-sidebar :: tteh-common-sidebar(${nav})}"></th:block>
+            <!-- Sidebar - END -->
+
+            <div class="mobile-overlay" id="overlay"></div>
+
+            <main class="main">
+                <!-- Navigation Bar - START -->
+                <th:block th:insert="~{fragments/common/html-fragment-common-navigation-bar :: tteh-common-navigation-bar}"></th:block>
+                <!-- Navigation Bar - END -->
+
+                <!-- Page Heading and Breadcrumbs - Start -->
+                <th:block th:insert="~{fragments/common/html-fragment-common-breadcrumbs-no-greetings :: staff-breadcrumb-section(${pageTitle}, ${pageSubTitle}, ${breadcrumbs})}"></th:block>
+                <!-- Page Heading and Breadcrumbs - End -->
+
+                <!-- Main Content - START -->
+
+                <!-- Main Content - END -->
+
+                <!-- Footer - START -->
+                <th:block th:insert="~{fragments/common/html-fragment-common-footer :: tteh-common-footer}"></th:block>
+                <!-- Footer - END -->
+            </main>
+
+        </div>
+
+        <th:block th:insert="~{fragments/common/html-fragment-common-js-scripts :: login-common-js}"></th:block>
+        <script th:src="@{/js/pages/portal/dashboard/tteh-dashboard-main-scripts.js}" type="text/javascript"></script>
+    </body>
+</html>

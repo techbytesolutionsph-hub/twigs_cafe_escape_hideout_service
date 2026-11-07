@@ -1,0 +1,233 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="430" height="430" style="width:100%;height:100%;transform:translate3d(0,0,0);content-visibility:visible" viewBox="0 0 430 430">
+    <defs>
+        <filter id="a" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+            <feComponentTransfer in="SourceGraphic">
+                <feFuncA tableValues="1.0 0.0" type="table" />
+            </feComponentTransfer>
+        </filter>
+        <filter id="c" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+            <feComponentTransfer in="SourceGraphic">
+                <feFuncA tableValues="1.0 0.0" type="table" />
+            </feComponentTransfer>
+        </filter>
+        <filter id="e" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+            <feComponentTransfer in="SourceGraphic">
+                <feFuncA tableValues="1.0 0.0" type="table" />
+            </feComponentTransfer>
+        </filter>
+        <filter id="g" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+            <feComponentTransfer in="SourceGraphic">
+                <feFuncA tableValues="1.0 0.0" type="table" />
+            </feComponentTransfer>
+        </filter>
+        <filter id="i" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+            <feComponentTransfer in="SourceGraphic">
+                <feFuncA tableValues="1.0 0.0" type="table" />
+            </feComponentTransfer>
+        </filter>
+        <filter id="k" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+            <feComponentTransfer in="SourceGraphic">
+                <feFuncA tableValues="1.0 0.0" type="table" />
+            </feComponentTransfer>
+        </filter>
+        <filter id="m" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+            <feComponentTransfer in="SourceGraphic">
+                <feFuncA tableValues="1.0 0.0" type="table" />
+            </feComponentTransfer>
+        </filter>
+        <filter id="o" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+            <feComponentTransfer in="SourceGraphic">
+                <feFuncA tableValues="1.0 0.0" type="table" />
+            </feComponentTransfer>
+        </filter>
+        <filter id="q" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+            <feComponentTransfer in="SourceGraphic">
+                <feFuncA tableValues="1.0 0.0" type="table" />
+            </feComponentTransfer>
+        </filter>
+        <filter id="s" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+            <feComponentTransfer in="SourceGraphic">
+                <feFuncA tableValues="1.0 0.0" type="table" />
+            </feComponentTransfer>
+        </filter>
+        <mask id="J" mask-type="alpha">
+            <g filter="url(#a)">
+                <path fill="#fff" d="M0 0h430v430H0z" opacity="0" />
+                <use xmlns:ns1="http://www.w3.org/1999/xlink" ns1:href="#b" />
+            </g>
+        </mask>
+        <mask id="I" mask-type="alpha">
+            <g filter="url(#c)">
+                <path fill="#fff" d="M0 0h430v430H0z" opacity="0" />
+                <use xmlns:ns2="http://www.w3.org/1999/xlink" ns2:href="#d" />
+            </g>
+        </mask>
+        <mask id="G" mask-type="alpha">
+            <g filter="url(#e)">
+                <path fill="#fff" d="M0 0h430v430H0z" opacity="0" />
+                <use xmlns:ns3="http://www.w3.org/1999/xlink" ns3:href="#f" />
+            </g>
+        </mask>
+        <mask id="F" mask-type="alpha">
+            <g filter="url(#g)">
+                <path fill="#fff" d="M0 0h430v430H0z" opacity="0" />
+                <use xmlns:ns4="http://www.w3.org/1999/xlink" ns4:href="#h" />
+            </g>
+        </mask>
+        <mask id="D" mask-type="alpha">
+            <g filter="url(#i)">
+                <path fill="#fff" d="M0 0h430v430H0z" opacity="0" />
+                <use xmlns:ns5="http://www.w3.org/1999/xlink" ns5:href="#j" />
+            </g>
+        </mask>
+        <mask id="C" mask-type="alpha">
+            <g filter="url(#k)">
+                <path fill="#fff" d="M0 0h430v430H0z" opacity="0" />
+                <use xmlns:ns6="http://www.w3.org/1999/xlink" ns6:href="#l" />
+            </g>
+        </mask>
+        <mask id="A" mask-type="alpha">
+            <g filter="url(#m)">
+                <path fill="#fff" d="M0 0h430v430H0z" opacity="0" />
+                <use xmlns:ns7="http://www.w3.org/1999/xlink" ns7:href="#n" />
+            </g>
+        </mask>
+        <mask id="z" mask-type="alpha">
+            <g filter="url(#o)">
+                <path fill="#fff" d="M0 0h430v430H0z" opacity="0" />
+                <use xmlns:ns8="http://www.w3.org/1999/xlink" ns8:href="#p" />
+            </g>
+        </mask>
+        <mask id="x" mask-type="alpha">
+            <g filter="url(#q)">
+                <path fill="#fff" d="M0 0h430v430H0z" opacity="0" />
+                <use xmlns:ns9="http://www.w3.org/1999/xlink" ns9:href="#r" />
+            </g>
+        </mask>
+        <mask id="w" mask-type="alpha">
+            <g filter="url(#s)">
+                <path fill="#fff" d="M0 0h430v430H0z" opacity="0" />
+                <use xmlns:ns10="http://www.w3.org/1999/xlink" ns10:href="#t" />
+            </g>
+        </mask>
+        <g id="b" style="display:none">
+            <path />
+            <path />
+        </g>
+        <g id="d" style="display:none">
+            <path />
+            <path />
+        </g>
+        <g id="j" style="display:none">
+            <path />
+            <path />
+        </g>
+        <g id="l" style="display:none">
+            <path />
+            <path />
+        </g>
+        <g id="n" style="display:none">
+            <path />
+            <path />
+        </g>
+        <g id="p" style="display:none">
+            <path />
+            <path />
+        </g>
+        <g id="r" style="display:none">
+            <path />
+            <path />
+        </g>
+        <g id="t" style="display:none">
+            <path />
+            <path />
+        </g>
+        <clipPath id="u">
+            <path d="M0 0h430v430H0z" />
+        </clipPath>
+        <clipPath id="H">
+            <path d="M0 0h430v430H0z" />
+        </clipPath>
+        <clipPath id="E">
+            <path d="M0 0h430v430H0z" />
+        </clipPath>
+        <clipPath id="B">
+            <path d="M0 0h430v430H0z" />
+        </clipPath>
+        <clipPath id="y">
+            <path d="M0 0h430v430H0z" />
+        </clipPath>
+        <clipPath id="v">
+            <path d="M0 0h430v430H0z" />
+        </clipPath>
+        <path id="f" fill="#FFF" d="M171.176 225C118.059 225 75 268.059 75 321.176V350h275v-28.824C350 268.059 306.941 225 253.824 225h-82.648zM285 120c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70 70 31.34 70 70z" style="display:block" />
+        <path id="h" fill="#FFF" d="M171.176 225C118.059 225 75 268.059 75 321.176V350h275v-28.824C350 268.059 306.941 225 253.824 225h-82.648zM285 120c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70 70 31.34 70 70z" style="display:block" />
+    </defs>
+    <g clip-path="url(#u)">
+        <g fill="none" clip-path="url(#v)" style="display:none">
+            <g mask="url(#w)" style="display:none">
+                <path class="secondary" />
+                <path class="secondary" />
+            </g>
+            <g mask="url(#x)" style="display:none">
+                <path class="secondary" />
+                <path class="secondary" />
+            </g>
+            <g style="display:none">
+                <path class="primary" />
+                <path class="primary" />
+            </g>
+        </g>
+        <g fill="none" clip-path="url(#y)" style="display:none">
+            <g mask="url(#z)" style="display:none">
+                <path class="secondary" />
+                <path class="secondary" />
+            </g>
+            <g mask="url(#A)" style="display:none">
+                <path class="secondary" />
+                <path class="secondary" />
+            </g>
+            <g style="display:none">
+                <path class="primary" />
+                <path class="primary" />
+            </g>
+        </g>
+        <g fill="none" clip-path="url(#B)" style="display:none">
+            <g mask="url(#C)" style="display:none">
+                <path class="secondary" />
+                <path class="secondary" />
+            </g>
+            <g mask="url(#D)" style="display:none">
+                <path class="secondary" />
+                <path class="secondary" />
+            </g>
+            <g style="display:none">
+                <path class="primary" />
+                <path class="primary" />
+            </g>
+        </g>
+        <g clip-path="url(#E)" style="display:block">
+            <g mask="url(#F)" style="display:block">
+                <path fill="none" stroke="#08A88A" stroke-linejoin="round" stroke-width="20" d="M104.293 225.25c-46.484 0-84.168 37.684-84.168 84.168V325h232.75v-15.582c0-46.484-37.684-84.168-84.168-84.168h-64.414zm84.932-85.025c0 30.168-24.457 54.625-54.625 54.625s-54.625-24.457-54.625-54.625S104.432 85.6 134.6 85.6s54.625 24.457 54.625 54.625z" class="secondary" />
+            </g>
+            <g mask="url(#G)" style="display:block">
+                <path fill="none" stroke="#08A88A" stroke-linejoin="round" stroke-width="20" d="M256.293 225.25c-46.484 0-84.168 37.684-84.168 84.168V325h232.75v-15.582c0-46.484-37.684-84.168-84.168-84.168h-64.414zm88.732-85.025c0 30.168-24.457 54.625-54.625 54.625s-54.625-24.457-54.625-54.625S260.232 85.6 290.4 85.6s54.625 24.457 54.625 54.625z" class="secondary" />
+            </g>
+            <path fill="none" stroke="#121331" stroke-linejoin="round" stroke-width="20" d="M171.176 225C118.059 225 75 268.059 75 321.176V350h275v-28.824C350 268.059 306.941 225 253.824 225h-82.648zM285 120c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70 70 31.34 70 70z" class="primary" style="display:block" />
+        </g>
+        <g fill="none" clip-path="url(#H)" style="display:none">
+            <g mask="url(#I)" style="display:none">
+                <path class="secondary" />
+                <path class="secondary" />
+            </g>
+            <g mask="url(#J)" style="display:none">
+                <path class="secondary" />
+                <path class="secondary" />
+            </g>
+            <g style="display:none">
+                <path class="primary" />
+                <path class="primary" />
+            </g>
+        </g>
+    </g>
+</svg>

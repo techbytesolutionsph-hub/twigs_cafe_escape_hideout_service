@@ -20,6 +20,12 @@ public class CloudinaryPropertiesConfig {
     private String deleteImageEndpoint;
 
     @NotBlank
+    private String uploadDocumentEndpoint;
+
+    @NotBlank
+    private String deleteDocumentEndpoint;
+
+    @NotBlank
     private String cloudName;
 
     @NotBlank
@@ -42,5 +48,15 @@ public class CloudinaryPropertiesConfig {
     public String buildDeleteImageUrl() {
         return baseUrl.replaceAll("/+$", "")
                 + String.format(deleteImageEndpoint, cloudName);
+    }
+
+    public String buildUploadDocumentUrl() {
+        return baseUrl.replaceAll("/+$", "")
+                + String.format(uploadDocumentEndpoint, cloudName);
+    }
+
+    public String buildDeleteDocumentUrl() {
+        return baseUrl.replaceAll("/+$", "")
+                + String.format(deleteDocumentEndpoint, cloudName);
     }
 }

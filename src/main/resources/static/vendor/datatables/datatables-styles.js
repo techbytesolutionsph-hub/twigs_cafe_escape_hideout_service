@@ -102,22 +102,22 @@ $(document).ready(function() {
   //   }
   // });
   //
-  // $('#candidateTable').DataTable({
-  //   pageLength: 5,
-  //   lengthMenu: [
-  //     [5, 10, 25, 50, 100],
-  //     [5, 10, 25, 50, 100]
-  //   ],
-  //   order: [[0, 'desc']],
-  //   language: {
-  //     emptyTable: `
-  //           <div class="icon-empty-state">
-  //               <i class="fa-solid fa-file-circle-exclamation"></i>
-  //               <div>No candidate/applicant records found</div>
-  //           </div>
-  //       `
-  //   }
-  // });
+  $('#candidateTable').DataTable({
+    pageLength: 5,
+    lengthMenu: [
+      [5, 10, 25, 50, 100],
+      [5, 10, 25, 50, 100]
+    ],
+    order: [[0, 'desc']],
+    language: {
+      emptyTable: `
+            <div class="icon-empty-state">
+                <i class="fa-solid fa-file-circle-exclamation"></i>
+                <div>No candidate/applicant records found</div>
+            </div>
+        `
+    }
+  });
   //
   //
   // $('#pendingInterviewTable').DataTable({

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="430" height="430" style="width:100%;height:100%;transform:translate3d(0,0,0);content-visibility:visible" viewBox="0 0 430 430">
+    <defs>
+        <clipPath id="e">
+            <path d="M0 0h430v430H0z" />
+        </clipPath>
+        <clipPath id="h">
+            <path d="M0 0h430v430H0z" />
+        </clipPath>
+        <clipPath id="f">
+            <path d="M0 0h430v430H0z" />
+        </clipPath>
+        <filter id="a" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+            <feComponentTransfer in="SourceGraphic">
+                <feFuncA tableValues="1.0 0.0" type="table" />
+            </feComponentTransfer>
+        </filter>
+        <filter id="c" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+            <feComponentTransfer in="SourceGraphic">
+                <feFuncA tableValues="1.0 0.0" type="table" />
+            </feComponentTransfer>
+        </filter>
+        <path id="b" style="display:none" />
+        <path id="d" fill="#FFF" d="M0-70c38.633 0 70 31.367 70 70 0 38.633-31.367 70-70 70-38.633 0-70-31.367-70-70 0-38.633 31.367-70 70-70z" style="display:block" transform="translate(320 315)" />
+        <mask id="i" mask-type="alpha">
+            <g filter="url(#a)">
+                <path fill="#fff" d="M0 0h430v430H0z" opacity="0" />
+                <use xmlns:ns1="http://www.w3.org/1999/xlink" ns1:href="#b" />
+            </g>
+        </mask>
+        <mask id="g" mask-type="alpha">
+            <g filter="url(#c)">
+                <path fill="#fff" d="M0 0h430v430H0z" opacity="0" />
+                <use xmlns:ns2="http://www.w3.org/1999/xlink" ns2:href="#d" />
+            </g>
+        </mask>
+    </defs>
+    <g clip-path="url(#e)">
+        <g clip-path="url(#f)" style="display:block">
+            <path fill="none" stroke="#08A88A" stroke-linecap="round" stroke-linejoin="round" stroke-width="20" d="M0 67.5c37.279 0 67.5-30.221 67.5-67.5 0-37.279-30.221-67.5-67.5-67.5-37.279 0-67.5 30.221-67.5 67.5 0 37.279 30.221 67.5 67.5 67.5z" class="secondary" style="display:block" transform="translate(200.5 112.5)" />
+            <g mask="url(#g)" style="display:block">
+                <path fill="none" stroke="#121331" stroke-linejoin="round" stroke-width="20" d="M159.545 215C101.806 215 55 261.807 55 319.546V350h290v-30.454C345 261.807 298.193 215 240.454 215h-80.909z" class="primary" />
+            </g>
+            <path fill="none" stroke="#08A88A" stroke-width="20" d="M0-70c38.633 0 70 31.367 70 70 0 38.633-31.367 70-70 70-38.633 0-70-31.367-70-70 0-38.633 31.367-70 70-70z" class="secondary" style="display:block" transform="translate(320 315)" />
+            <path fill="none" stroke="#08A88A" stroke-linecap="round" stroke-linejoin="round" stroke-width="20" d="M31.597-22.283-13.16 22.5-31.514 4.227" class="secondary" style="display:block" transform="translate(321.934 317.5)" />
+            <path fill="none" class="secondary" style="display:none" />
+        </g>
+        <g clip-path="url(#h)" style="display:none">
+            <path fill="none" class="secondary" style="display:none" />
+            <g mask="url(#i)" style="display:none">
+                <path fill="none" class="primary" />
+            </g>
+            <path fill="none" class="secondary" style="display:none" />
+            <path fill="none" class="secondary" style="display:none" />
+        </g>
+    </g>
+</svg>

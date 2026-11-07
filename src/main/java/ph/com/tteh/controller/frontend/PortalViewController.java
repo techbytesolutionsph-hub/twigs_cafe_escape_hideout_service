@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ph.com.tteh.dto.admin.AppUserResponse;
+import ph.com.tteh.dto.hris.ApplicantResponse;
+import ph.com.tteh.dto.response.DashboardMetricsResponse;
 import ph.com.tteh.exception.ServiceException;
 import ph.com.tteh.service.api.front.PortalFrontService;
 import ph.com.tteh.service.util.logging.LoggingService;
@@ -46,6 +48,8 @@ public class PortalViewController {
         return "pages/portal/dashboard/index";
     }
 
+    /* User Management - START */
+
     @GetMapping(value = "/admin/user-management")
     public String userManagementPage(HttpSession session, Model model) {
         this.setupPage(model, "admin", "User Management", "");
@@ -80,7 +84,49 @@ public class PortalViewController {
         return "pages/portal/admin/user-management/update/index";
     }
 
+    @GetMapping(value = "/hr-recruitment/candidates/add-candidate")
+    public String addCandidatePage(Model model) {
+        this.setupPage(model, "recruitment", "Add Candidate",
+                "Manage candidates and track recruitment progress.");
 
+        return "pages/portal/hr-admin/recruitment/candidate/add/index";
+    }
+
+    /* User Management - END */
+    @GetMapping(value = "/hr-recruitment")
+    public String hrRecruitmentDashboardPage(Model model) {
+        this.setupPage(model, "recruitment", "Recruitment Dashboard",
+                "Oversee recruitment activities, monitor hiring progress, and track candidate applications.");
+
+        return "pages/portal/hr-admin/recruitment/dashboard/index";
+    }
+
+    @GetMapping(value = "/hr-recruitment/candidates")
+    public String candidatePage(Model model) {
+        this.setupPage(model, "recruitment", "Candidates",
+                "Manage applicants throughout the recruitment and selection process.");
+
+        List<ApplicantResponse> applicants = portalFrontService.getAllApplicants();
+        model.addAttribute("applicants", applicants);
+
+        DashboardMetricsResponse kpi = portalFrontService.candidateKPIs();
+        model.addAttribute("kpi", kpi);
+
+        return "pages/portal/hr-admin/recruitment/candidate/index";
+    }
+
+    @GetMapping(value = "/hr-recruitment/candidates/edit-candidate")
+    public String editCandidatePage(Model model, @RequestParam("id") Long applicantId) throws ServiceException {
+        this.setupPage(model, "recruitment", "Edit Candidate",
+                "Update candidate details and maintain accurate recruitment records.");
+
+        ApplicantResponse applicant = portalFrontService.getApplicant(applicantId);
+        loggingService.info("", this.getClass().getName(), "", "applicant : " + applicant);
+        model.addAttribute("applicant", applicant);
+
+        return "pages/portal/hr-admin/recruitment/candidate/edit/index";
+    }
+    /* HR Management - END */
 
     private void setupPage(Model model, String nav, String pageTitle, String pageSubTitle) {
         model.addAttribute("nav", nav);

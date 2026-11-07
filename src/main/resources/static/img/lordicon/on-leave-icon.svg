@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="430" height="430" style="width:100%;height:100%;transform:translate3d(0,0,0);content-visibility:visible" viewBox="0 0 430 430">
+    <defs>
+        <clipPath id="a">
+            <path d="M0 0h430v430H0z" />
+        </clipPath>
+        <clipPath id="c">
+            <path d="M0 0h430v430H0z" />
+        </clipPath>
+        <clipPath id="b">
+            <path d="M0 0h430v430H0z" />
+        </clipPath>
+    </defs>
+    <g fill="none" clip-path="url(#a)">
+        <g stroke-linecap="round" stroke-linejoin="round" stroke-width="20" clip-path="url(#b)" style="display:block">
+            <g style="display:block">
+                <path stroke="#121331" d="M130 45H85c-5.523 0-10 4.477-10 10v320c0 5.523 4.477 10 10 10h260c5.523 0 10-4.477 10-10V55c0-5.523-4.477-10-10-10h-45" class="primary" />
+                <path stroke="#08A88A" d="M246.63 35c-5.617-11.824-17.668-20-31.63-20s-26.013 8.176-31.63 20H140c-5.523 0-10 4.477-10 10v30c0 5.523 4.477 10 10 10h150c5.523 0 10-4.477 10-10V45c0-5.523-4.477-10-10-10z" class="secondary" />
+            </g>
+            <path stroke="#08A88A" d="M55-20H20v-35h-40v35h-35v40h35v35h40V20h35z" class="secondary" style="display:block" transform="rotate(180 107.5 92.5)" />
+            <path stroke="#121331" d="M85 0H-85" class="primary" style="display:block" transform="translate(215 325)" />
+            <path stroke="#121331" d="M85 0H-85" class="primary" style="display:block" transform="translate(215 285)" />
+        </g>
+        <g clip-path="url(#c)" style="display:none">
+            <g style="display:none">
+                <path class="primary" />
+                <path class="secondary" />
+            </g>
+            <path class="secondary" style="display:none" />
+            <path class="primary" style="display:none" />
+            <path class="primary" style="display:none" />
+        </g>
+    </g>
+</svg>

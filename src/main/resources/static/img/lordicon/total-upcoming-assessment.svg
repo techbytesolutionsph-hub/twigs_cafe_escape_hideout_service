@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 430 430" width="430" height="430" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px); content-visibility: visible;">
+    <defs>
+        <clipPath id="__lottie_element_3569">
+            <rect width="430" height="430" x="0" y="0"></rect>
+        </clipPath>
+        <clipPath id="__lottie_element_3571">
+            <path d="M0,0 L430,0 L430,430 L0,430z"></path>
+        </clipPath>
+    </defs>
+    <g clip-path="url(#__lottie_element_3569)">
+        <g clip-path="url(#__lottie_element_3571)" transform="matrix(1,0,0,1,0,0)" opacity="1" style="display: block;">
+            <g transform="matrix(1,0,0,1,256.9049987792969,215)" opacity="1" style="display: block;">
+                <g opacity="1" transform="matrix(1,0,0,1,0,0)">
+                    <path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" class="primary" stroke="rgb(18,19,49)" stroke-opacity="1" stroke-width="20" d=" M-138.09500122070312,-110 C-108.93299865722656,-140.79200744628906 -67.66200256347656,-160 -21.905000686645508,-160 C66.46099853515625,-160 138.09500122070312,-88.36599731445312 138.09500122070312,0 C138.09500122070312,88.36599731445312 66.46099853515625,160 -21.905000686645508,160 C-67.66200256347656,160 -108.93299865722656,140.79200744628906 -138.09500122070312,110"></path>
+                </g>
+            </g>
+            <g transform="matrix(1,0,0,1,263.4179992675781,157.68600463867188)" opacity="1" style="display: block;">
+                <g opacity="1" transform="matrix(1,0,0,1,-0.000003814697265625,-0.000003814697265625)">
+                    <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(18,19,49)" stroke-opacity="1" stroke-width="20" d=" M-28.417999267578125,57.3129997253418 C-28.417999267578125,57.3129997253418 -28.417999267578125,-57.3129997253418 -28.417999267578125,-57.3129997253418"></path>
+                </g>
+                <g opacity="1" transform="matrix(1,0,0,1,0,0)">
+                    <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(18,19,49)" stroke-opacity="1" stroke-width="20" d=" M28.417999267578125,0.4779999852180481 C28.417999267578125,0.4779999852180481 -28.417999267578125,57.3129997253418 -28.417999267578125,57.3129997253418"></path>
+                </g>
+            </g>
+            <g transform="matrix(1,0,0,1,72.5,215)" opacity="1" style="display: block;">
+                <g opacity="1" transform="matrix(1,0,0,1,0,0)">
+                    <path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" class="secondary" stroke="rgb(8,168,138)" stroke-opacity="1" stroke-width="20" d=" M52.5,0 C52.5,0 -52.5,0 -52.5,0"></path>
+                </g>
+            </g>
+            <g transform="matrix(1,0,0,1,90,175)" opacity="1" style="display: block;">
+                <g opacity="1" transform="matrix(1,0,0,1,0,80)">
+                    <path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" class="secondary" stroke="rgb(8,168,138)" stroke-opacity="1" stroke-width="20" d=" M45,0 C45,0 -45,0 -45,0"></path>
+                </g>
+                <g opacity="1" transform="matrix(1,0,0,1,0,0)">
+                    <path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" class="secondary" stroke="rgb(8,168,138)" stroke-opacity="1" stroke-width="20" d=" M45,0 C45,0 -45,0 -45,0"></path>
+                </g>
+            </g>
+            <g transform="matrix(1,0,0,1,112.5,300)" opacity="1" style="display: block;">
+                <g opacity="1" transform="matrix(1,0,0,1,0,-165)">
+                    <path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" class="secondary" stroke="rgb(8,168,138)" stroke-opacity="1" stroke-width="20" d=" M37.5,0 C37.5,0 -37.5,0 -37.5,0"></path>
+                </g>
+                <g opacity="1" transform="matrix(1,0,0,1,0,0)">
+                    <path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" class="secondary" stroke="rgb(8,168,138)" stroke-opacity="1" stroke-width="20" d=" M37.5,0 C37.5,0 -37.5,0 -37.5,0"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

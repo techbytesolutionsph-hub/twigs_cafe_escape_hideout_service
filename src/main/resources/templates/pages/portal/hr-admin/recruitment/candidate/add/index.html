@@ -1,0 +1,574 @@
+<!--
+   Template Name: The Twigs - Escape & Hideout Portal Website
+   Version: 1.0.0
+   Author: Glenn Mark Anduiza
+   Email: glenmark.anduiza@gmail.com
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <th:block th:insert="~{fragments/common/html-fragment-default-meta :: meta}"></th:block>
+        <title th:text="${title}">Sample Page | The Twigs</title>
+        <th:block th:insert="~{fragments/common/html-fragment-common-css-links :: commoncss}"></th:block>
+        <link rel="stylesheet" th:href="@{/css/common/tteh-common-css-styles.css}"/>
+        <link th:href="@{/css/components/tteh-default-add-view-edit-module.css}" rel="stylesheet" type="text/css">
+        <style>
+            /* UPLOAD CARD */
+
+            .upload-progress-card {
+                padding: 22px 24px 18px;
+            }
+
+            .upload-content {
+                display: grid;
+                grid-template-columns: 275px minmax(0, 1fr);
+                gap: 30px;
+            }
+            /* FILE DROP ZONE */
+
+            .file-drop-zone {
+                position: relative;
+                min-height: 150px;
+                border: 1px dashed var(--green-700) !important;
+                border-radius: 10px;
+                background: linear-gradient(135deg, #f9fdfd, #f2fafb);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+                overflow: hidden;
+            }
+
+            .file-drop-zone:hover,
+            .file-drop-zone.drag-over {
+                border-color: var(--client-primary);
+                background: #E8EFE3;
+            }
+
+            .file-drop-zone.has-error {
+                border-color: #d9534f;
+            }
+
+            .file-drop-zone:not(.has-error) {
+                border: 1.5px dashed #79dbe2;
+            }
+
+            .file-drop-zone.dragover {
+                border-color: var(--lllc-primary);
+                background: #e8fafa;
+            }
+
+            .file-input {
+                display: none;
+            }
+            /* UPLOAD PLACEHOLDER */
+
+            .upload-placeholder {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 10px 10px;
+            }
+
+            .upload-cloud-icon {
+                color: var(--green-700) !important;
+                font-size: 40px;
+                line-height: 1;
+                margin-bottom: 15px;
+            }
+
+            .upload-main-text {
+                color: #09647d;
+                font-size: 12px;
+                font-weight: 600;
+                margin-bottom: 8px;
+            }
+
+            .upload-or {
+                color: #6584a3;
+                font-size: 12px;
+                font-weight: 600;
+                margin-bottom: 11px;
+            }
+
+            .choose-file-btn {
+                border: none;
+                min-width: 150px;
+                height: 40px;
+                padding: 0 25px;
+                border-radius: 9px;
+                background: var(--green-700) !important;
+                color: #fff;
+                font-size: 14px;
+                font-weight: 700;
+                cursor: pointer;
+                box-shadow: 0 4px 9px rgba(0, 151, 157, 0.15);
+                transition: transform 0.15s ease, box-shadow 0.15s ease;
+            }
+
+            .choose-file-btn:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 6px 13px rgba(0, 151, 157, 0.22);
+            }
+
+            .upload-info {
+                color: #6684a5;
+                font-size: 11px;
+                font-weight: 600;
+                line-height: 1.8;
+                margin-top: 17px;
+            }
+
+            .upload-info span {
+                font-size: 12px;
+            }
+            /* SELECTED FILE */
+
+            .selected-file-container {
+                width: calc(100% - 45px);
+                padding: 20px;
+                display: flex;
+                align-items: center;
+                gap: 13px;
+                border-radius: 10px;
+                background: #ffffff;
+                box-shadow: 0 4px 15px rgba(45, 88, 111, 0.08);
+            }
+
+            .selected-file-icon {
+                width: 43px;
+                height: 43px;
+                border-radius: 9px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--green-700) !important;
+                background: #e7f8f8;
+                font-size: 20px;
+                flex-shrink: 0;
+            }
+
+            .selected-file-details {
+                flex: 1;
+                min-width: 0;
+            }
+
+            .selected-file-name {
+                color: var(--text-dark);
+                font-size: 13px;
+                font-weight: 700;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .selected-file-size {
+                color: var(--text-light);
+                font-size: 11px;
+                margin-top: 3px;
+            }
+
+            .remove-file-btn {
+                width: 30px;
+                height: 30px;
+                padding: 0;
+                border: none;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #fff0f0;
+                color: #e25555;
+                cursor: pointer;
+                transition: background-color 0.2s ease, color 0.2s ease;
+            }
+
+            .remove-file-btn:hover {
+                background: #e25555;
+                color: #ffffff;
+            }
+
+            .remove-file-btn i {
+                font-size: 14px;
+                line-height: 1;
+            }
+
+            @media (max-width: 767.98px) {
+
+                .client-form-side {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    flex: 0 0 100%;
+                }
+
+                .client-photo-card,
+                .upload-progress-card,
+                .upload-content,
+                .file-upload-column,
+                .file-drop-zone,
+                #uploadPlaceholder {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    box-sizing: border-box;
+                }
+
+                .upload-content {
+                    display: block;
+                }
+
+                .file-upload-column {
+                    flex: 0 0 100%;
+                }
+
+                #uploadPlaceholder {
+                    min-width: 0;
+                }
+            }
+            @media (max-width: 575px) {
+                .upload-content {
+                    grid-template-columns: 285px minmax(0, 1fr);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="app">
+            <!-- Sidebar - START -->
+            <th:block th:insert="~{fragments/common/html-fragment-common-sidebar :: tteh-common-sidebar(${nav})}"></th:block>
+            <!-- Sidebar - END -->
+
+            <div class="mobile-overlay" id="overlay"></div>
+
+            <main class="main">
+                <!-- Navigation Bar - START -->
+                <th:block th:insert="~{fragments/common/html-fragment-common-navigation-bar :: tteh-common-navigation-bar}"></th:block>
+                <!-- Navigation Bar - END -->
+
+                <!-- Page Heading and Breadcrumbs - Start -->
+                <th:block th:insert="~{fragments/common/html-fragment-common-breadcrumbs-no-greetings :: staff-breadcrumb-section(${pageTitle}, ${pageSubTitle}, ${breadcrumbs})}"></th:block>
+                <!-- Page Heading and Breadcrumbs - End -->
+
+                <!-- Main Content - START -->
+                <form id="add-candidate-form" autocomplete="off" class="needs-validation">
+                    <div class="client-form-layout">
+                        <div class="client-form-main">
+                            <section class="client-section-card mb-2">
+                                <div class="client-section-header">
+                                    <div class="section-icon">
+                                        <i class="bi bi-person-vcard me-2"></i>
+                                    </div>
+                                    <div class="section-header-content">
+                                        <h3>Applicant Information</h3>
+                                        <p>Enter the applicant's basic personal details and contact information.</p>
+                                    </div>
+                                </div>
+                                <div class="client-section-body">
+                                    <div class="row px-2">
+                                        <div class="col-12 col-md-6 mt-2 mb-2">
+                                            <label for="candidate-firstname" class="form-label text-sm fw-bold text-gray-700">First name<span class="required">*</span></label>
+                                            <input type="text" class="form-control text-sm" id="candidate-firstname" placeholder="Enter first name" required>
+                                            <div class="invalid-feedback">
+                                                Please enter a firstname.
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-6 mt-2 mb-2">
+                                            <label for="candidate-middlename" class="form-label text-sm fw-bold text-gray-700">Middle name<span class="required">*</span></label>
+                                            <input type="text" class="form-control text-sm" id="candidate-middlename" placeholder="Enter middle name" required>
+                                            <div class="invalid-feedback">
+                                                Please enter a middle name.
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-6 mt-2 mb-2">
+                                            <label for="candidate-lastname" class="form-label text-sm fw-bold text-gray-700">Last name<span class="required">*</span></label>
+                                            <input type="text" class="form-control text-sm" id="candidate-lastname" placeholder="Enter last name" required>
+                                            <div class="invalid-feedback">
+                                                Please enter a lastname.
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-6 mt-2 mb-2">
+                                            <label for="candidate-suffix" class="form-label text-sm fw-bold text-gray-700">Suffix (Ex. Jr.)</label>
+                                            <input type="text" class="form-control text-sm" id="candidate-suffix" placeholder="Enter suffix">
+                                        </div>
+
+                                        <div class="col-12 col-md-6 mt-2 mb-2">
+                                            <label for="candidate-email" class="form-label text-sm fw-bold text-gray-700">Email<span class="required">*</span></label>
+                                            <input type="email" class="form-control text-sm" id="candidate-email" placeholder="Enter email address" required>
+                                            <div class="invalid-feedback">
+                                                Please enter a valid email address.
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-6 mt-2 mb-2">
+                                            <label for="candidate-phone" class="form-label text-sm fw-bold text-gray-700">Phone<span class="required">*</span></label>
+                                            <input type="text" class="form-control text-sm" id="candidate-phone" placeholder="Enter phone number" required>
+                                            <div class="invalid-feedback">
+                                                Please enter a valid phone number.
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-6 mt-2 mb-2">
+                                            <label for="candidate-applied-job" class="form-label text-sm fw-bold text-gray-700">Applied Job<span class="required">*</span></label>
+                                            <select class="form-control text-sm" id="candidate-applied-job" required>
+                                                <option value="" selected disabled>Select applied job</option>
+                                                <option value="OPERATIONS_MANAGER">Operations Manager</option>
+                                                <option value="HEAD_COOK">Head Cook</option>
+                                                <option value="KITCHEN_STAFF">Kitchen Staff</option>
+                                                <option value="SERVICE_CREW">Service Crew</option>
+                                                <option value="BARISTA">Barista</option>
+                                                <option value="CASHIER">Cashier</option>
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                Please select applied job.
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-6 mt-2 mb-2">
+                                            <label for="candidate-location" class="form-label text-sm fw-bold text-gray-700">Location<span class="required">*</span></label>
+                                            <input type="text" class="form-control text-sm" id="candidate-location" placeholder="e.g. Catanauan Quezon" required>
+                                            <div class="invalid-feedback">
+                                                Please enter the applicant's location.
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-6 mt-1 mb-2">
+                                            <label for="candidate-applied-date" class="text-sm fw-bold text-gray-700">Applied Date<span class="required">*</span></label>
+                                            <div class="date-input-wrapper">
+                                                <input type="text" id="candidate-applied-date" class="form-control" placeholder="Select applied date" required>
+                                                <i class="bi bi-calendar-event calendar-icon"></i>
+                                                <div class="invalid-feedback">
+                                                    Please select applied date.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-6 mt-2 mb-2">
+                                            <label for="candidate-experience" class="form-label text-sm fw-bold text-gray-700">Experience (yrs)<span class="required">*</span></label>
+                                            <input type="number" class="form-control text-sm" id="candidate-experience" placeholder="0" min="0" required>
+                                            <div class="invalid-feedback">
+                                                Please enter a valid number of years of experience (0 or greater).
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 mt-2 mb-2">
+                                            <label for="candidate-notes" class="form-label text-sm fw-bold text-gray-700">Notes</label>
+                                            <textarea class="form-control text-sm" id="candidate-notes" name="notes" rows="4" placeholder="Enter additional notes about the candidate..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                        <div class="client-form-side">
+                            <section class="client-photo-card mb-4">
+                                <div class="client-photo-header">
+                                    <h3>Candidate Resume</h3>
+                                    <p>Upload the candidate's resume for review.</p>
+                                </div>
+
+                                <div class="upload-progress-card">
+                                    <div class="upload-content">
+                                        <div class="file-upload-column">
+                                            <div id="fileDropZone" class="file-drop-zone">
+                                                <input type="file" id="progressReportFile" class="file-input" accept=".pdf,.doc,.docx">
+                                                <div id="uploadPlaceholder" class="upload-placeholder">
+                                                    <div class="upload-cloud-icon">
+                                                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                                                    </div>
+
+                                                    <div class="upload-main-text">
+                                                        Drag and drop your file here
+                                                    </div>
+
+                                                    <div class="upload-or">or</div>
+
+                                                    <button type="button" id="chooseFileBtn" class="choose-file-btn">
+                                                        Choose File
+                                                    </button>
+
+                                                    <div class="upload-info">
+                                                        Accepted format: PDF
+                                                    </div>
+                                                </div>
+
+                                                <!-- Selected File -->
+                                                <div id="selectedFileContainer" class="selected-file-container" style="display: none;">
+                                                    <div class="selected-file-icon">
+                                                        <i class="fa-regular fa-file-lines"></i>
+                                                    </div>
+
+                                                    <div class="selected-file-details">
+                                                        <div id="selectedFileName" class="selected-file-name"> </div>
+                                                        <div id="selectedFileSize" class="selected-file-size"></div>
+                                                    </div>
+
+                                                    <button type="button" id="removeFileBtn" class="remove-file-btn" title="Remove file">
+                                                        <i class="fa-solid fa-xmark"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <div class="client-section-footer mb-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <button type="button" class="btn btn-back fw-semibold"
+                                    id="back-client-btn"
+                                    data-url="/app/portal/hr-recruitment/candidates">
+                                <i class="fa-solid fa-arrow-left mr-2"></i>
+                                Back
+                            </button>
+
+                            <button type="button" class="btn btn-submit fw-semibold" id="add-candidate-btn">
+                                <i class="fa-solid fa-user-plus mr-2"></i>
+                                Add Candidate
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+                <!-- Main Content - END -->
+
+                <!-- Footer - START -->
+                <th:block th:insert="~{fragments/common/html-fragment-common-footer :: tteh-common-footer}"></th:block>
+                <!-- Footer - END -->
+            </main>
+
+        </div>
+
+        <th:block th:insert="~{fragments/common/html-fragment-common-js-scripts :: login-common-js}"></th:block>
+<!--        <script th:src="@{/js/pages/portal/dashboard/tteh-dashboard-main-scripts.js}" type="text/javascript"></script>-->
+    <script>
+        $(document).ready(function () {
+            initializeDatePicker("#candidate-applied-date", "mm/dd/yyyy");
+
+            initializeDocumentUpload();
+
+            $("#add-candidate-btn").on("click", function () {
+
+                if (!validateForm()) {
+                    return;
+                }
+
+                const request = buildApplicantRequest();
+
+                console.log(request);
+                registerCandidate(request);
+            });
+
+            function buildApplicantRequest() {
+                return {
+                    id: null,
+                    firstName: $("#candidate-firstname").val().trim(),
+                    middleName: $("#candidate-middlename").val().trim(),
+                    lastName: $("#candidate-lastname").val().trim(),
+                    suffix: $("#candidate-suffix").val().trim(),
+                    email: $("#candidate-email").val().trim(),
+                    phoneNumber: $("#candidate-phone").val().trim(),
+                    appliedJob: $("#candidate-applied-job").val(),
+                    location: $("#candidate-location").val().trim(),
+                    experience: $("#candidate-experience").val()
+                        ? Number($("#candidate-experience").val())
+                        : null,
+                    appliedDate: $("#candidate-applied-date").val() || null,
+                    appliedStage: "APPLIED",
+                    resumeLink: uploadRequest.secure_url ?? null,
+                    resumeFilename: uploadRequest.original_filename ?? null,
+                    notes: $("#candidate-notes").val().trim()
+                };
+            }
+
+
+            function validateForm() {
+                const form = $("#add-candidate-form")[0];
+                let valid = form.checkValidity();
+
+                const dateInput = $("#candidate-applied-date")[0];
+                const date = dateInput.value.trim();
+                const match = date.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+
+                let validDate = false;
+
+                if (match) {
+                    const [, yyyy, mm, dd] = match;
+                    const parsedDate = new Date(+yyyy, +mm - 1, +dd);
+
+                    validDate = parsedDate.getFullYear() === +yyyy
+                        && parsedDate.getMonth() === +mm - 1
+                        && parsedDate.getDate() === +dd;
+                }
+
+                dateInput.setCustomValidity(!date ? "Required" : validDate
+                    ? "" : "Please select a valid applied date."
+                );
+
+                $(dateInput).next(".form-control")
+                    .toggleClass("is-invalid", !validDate);
+
+                if (!validDate) {
+                    valid = false;
+                }
+
+                form.classList.add("was-validated");
+
+                if (!valid) {
+                    form.reportValidity();
+                    return false;
+                }
+
+                return true;
+            }
+
+            $("#back-client-btn").on("click", function (e) {
+                e.preventDefault();
+                showConfirmPopup(
+                    "Leave this page?",
+                    "Your unsaved candidate data will be lost.",
+                    () => window.location.href = $(this).data("url")
+                );
+            });
+
+            function registerCandidate(request) {
+
+                $.ajax({
+                    url: "/api/v1/recruitment/register-candidate",
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify(request),
+
+                    success: function (response) {
+                        console.log("Candidate registered successfully.", response);
+                        showSuccessThenRedirectPopup(
+                            "Success",
+                            response.returnMessage,
+                            () => {
+                                window.location.href = "/app/portal/hr-recruitment/candidates";
+                            }
+                        );
+                    },
+
+                    error: function (xhr) {
+                        console.error("Failed to register candidate.", xhr.responseJSON);
+                        let message = "Unable to save candidate.";
+
+                        if (xhr.responseJSON && xhr.responseJSON.message) {
+                            message = xhr.responseJSON.message;
+                        }
+
+                        showErrorPopup("Error", message);
+                    }
+                });
+            }
+        });
+    </script>
+    </body>
+</html>

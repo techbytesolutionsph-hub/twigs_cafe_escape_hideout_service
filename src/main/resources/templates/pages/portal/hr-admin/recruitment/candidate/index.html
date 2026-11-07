@@ -1,0 +1,243 @@
+<!--
+   Template Name: The Twigs - Escape & Hideout Portal Website
+   Version: 1.0.0
+   Author: Glenn Mark Anduiza
+   Email: glenmark.anduiza@gmail.com
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <th:block th:insert="~{fragments/common/html-fragment-default-meta :: meta}"></th:block>
+        <title th:text="${title}">Sample Page | The Twigs</title>
+        <th:block th:insert="~{fragments/common/html-fragment-common-css-links :: commoncss}"></th:block>
+        <link rel="stylesheet" th:href="@{/css/common/tteh-common-css-styles.css}"/>
+        <link rel="stylesheet" th:href="@{/css/pages/portal/admin/user-management/tteh-admin-user-management-styles.css}"/>
+    </head>
+    <body>
+        <div class="app">
+            <!-- Sidebar - START -->
+            <th:block th:insert="~{fragments/common/html-fragment-common-sidebar :: tteh-common-sidebar(${nav})}"></th:block>
+            <!-- Sidebar - END -->
+
+            <div class="mobile-overlay" id="overlay"></div>
+
+            <main class="main">
+                <!-- Navigation Bar - START -->
+                <th:block th:insert="~{fragments/common/html-fragment-common-navigation-bar :: tteh-common-navigation-bar}"></th:block>
+                <!-- Navigation Bar - END -->
+
+                <!-- Page Heading and Breadcrumbs - Start -->
+                <th:block th:insert="~{fragments/common/html-fragment-common-breadcrumbs-no-greetings :: staff-breadcrumb-section(${pageTitle}, ${pageSubTitle}, ${breadcrumbs})}"></th:block>
+                <!-- Page Heading and Breadcrumbs - End -->
+
+                <!-- Main Content - START -->
+                <div class="row kpi-cards">
+                    <!-- Total Candidates count -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card shadow h-100 py-1">
+                            <div class="card-body-white">
+                                <div class="row no-gutters align-items-center">
+                                    <!-- Icon -->
+                                    <div class="col-auto mr-3">
+                                        <div class="p-2 bg-teal-soft border rounded d-flex align-items-center justify-content-center">
+                                            <img class="lordicon-bounce" src="/img/lordicon/total-employees-icon.svg" width="45" height="45" alt="Total Employees">
+                                        </div>
+                                    </div>
+
+                                    <!-- Text -->
+                                    <div class="col">
+                                        <div class="kpi-header text-xs font-weight-bolder mb-2">
+                                            Total Candidates
+                                        </div>
+                                        <div class="kpi-count h5 mb-0 text-gray-700" th:text="${kpi.totalCandidates.value}">
+                                            0
+                                        </div>
+                                        <div class="text-xs text-muted mt-2">
+                                            <span class="kpi-circle-badge" th:text="${kpi.totalCandidates.message}">
+                                                0 this month
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- In Interview count -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card shadow h-100 py-1">
+                            <div class="card-body-white" style="background-color: white !important;">
+                                <div class="row no-gutters align-items-center">
+                                    <!-- Icon -->
+                                    <div class="col-auto mr-3">
+                                        <div class="p-2 bg-teal-soft border rounded d-flex align-items-center justify-content-center">
+                                            <img class="lordicon-bounce" src="/img/lordicon/applicant-interview-icon.svg" width="45" height="45" alt="Total Employees">
+                                        </div>
+                                    </div>
+
+                                    <!-- Text -->
+                                    <div class="col">
+                                        <div class="kpi-header text-xs font-weight-bolder mb-2">
+                                            Total In Interview
+                                        </div>
+                                        <div class="kpi-count h5 mb-0 text-gray-700" th:text="${kpi.totalInInterviews.value}">
+                                            0
+                                        </div>
+                                        <div class="text-xs text-muted mt-2">
+                                    <span class="kpi-circle-badge" th:text="${kpi.totalInInterviews.message}">
+                                        0 this month
+                                    </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Offered Candidates count -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card shadow h-100 py-1">
+                            <div class="card-body-white" style="background-color: white !important;">
+                                <div class="row no-gutters align-items-center">
+                                    <!-- Icon -->
+                                    <div class="col-auto mr-3">
+                                        <div class="p-2 bg-teal-soft border rounded d-flex align-items-center justify-content-center">
+                                            <img class="lordicon-bounce" src="/img/lordicon/job-offer-icon.svg" width="45" height="45" alt="On Leave">
+                                        </div>
+                                    </div>
+
+                                    <!-- Text -->
+                                    <div class="col">
+                                        <div class="kpi-header text-xs font-weight-bolder mb-2">
+                                            Total Offered
+                                        </div>
+                                        <div class="kpi-count h5 mb-0 text-gray-700" th:text="${kpi.totalOffered.value}">
+                                            0
+                                        </div>
+                                        <div class="text-xs text-muted mt-2">
+                                    <span class="kpi-circle-badge" th:text="${kpi.totalOffered.message}">
+                                        0 this month
+                                    </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hired This Quarter count -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card shadow h-100 py-1">
+                            <div class="card-body-white" style="background-color: white !important;">
+                                <div class="row no-gutters align-items-center">
+                                    <!-- Icon -->
+                                    <div class="col-auto mr-3">
+                                        <div class="p-2 bg-teal-soft border rounded d-flex align-items-center justify-content-center">
+                                            <img class="lordicon-bounce" src="/img/lordicon/hired-applicant-icon.svg" width="45" height="45" alt="Total Employees">
+                                        </div>
+                                    </div>
+
+                                    <!-- Text -->
+                                    <div class="col">
+                                        <div class="kpi-header text-xs font-weight-bolder mb-2">
+                                            Total Hired
+                                        </div>
+                                        <div class="kpi-count h5 mb-0 text-gray-700" th:text="${kpi.totalHiredThisQuarter.value}">
+                                            0
+                                        </div>
+                                        <div class="text-xs text-muted mt-2">
+                                            <span class="kpi-circle-badge" th:text="${kpi.totalHiredThisQuarter.message}">
+                                                +0 vs Q4
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="default-card css-default-card">
+                    <div class="css-default-card-header mb-2">
+                        <div class="section-title">
+                            <div class="section-title-icon">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+                            <div>
+                                <h2>Candidates Records</h2>
+                                <p>Track applicants across every stage of the hiring funnel, review profiles and resumes, and move candidates forward.</p>
+                            </div>
+                        </div>
+
+                        <a th:href="@{/app/portal/hr-recruitment/candidates/add-candidate}"
+                           class="btn-glossy-teal-header d-flex justify-content-center align-items-center"
+                           id="add-candidate-btn"
+                           style="text-decoration: none">
+                            <i class="fa-solid fa-user-plus mr-2"></i> Add Candidate
+                        </a>
+                    </div>
+                    <div class="reports-table-wrapper">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="candidateTable">
+                                <thead>
+                                <tr>
+                                    <th>Candidate</th>
+                                    <th>Applied Job</th>
+                                    <th>Location</th>
+                                    <th>Applied Date</th>
+                                    <th>Stage</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="applicant : ${applicants}">
+                                    <td data-label="Candidate"
+                                        th:text="${applicant.firstName
+                                    + (applicant.middleName != null and !applicant.middleName.isEmpty() ? ' ' + applicant.middleName : '')
+                                    + ' ' + applicant.lastName
+                                    + (applicant.suffix != null and !applicant.suffix.isEmpty() ? ' ' + applicant.suffix : '')}">
+                                        Candidate Name
+                                    </td>
+                                    <td data-label="Applied Job" th:text="${applicant.appliedJob.displayPosition}"></td>
+                                    <td data-label="Location" th:text="${applicant.location}"></td>
+                                    <td data-label="Applied Date"
+                                        th:text="${#temporals.format(applicant.appliedDate, 'MMM d, yyyy')}">
+                                    </td>
+                                    <td data-label="Stage">
+                                    <span class="status-badge badge"
+                                          th:classappend="' badge-' + ${#strings.toLowerCase(#strings.replace(applicant.appliedStage.name(), '_', '-'))}"
+                                          th:text="${applicant.appliedStage.stage}">
+                                    </span>
+                                    </td>
+                                    <td data-label="Actions" >
+                                        <div class="actions-buttons d-flex flex-wrap justify-content-start gap-1">
+                                            <a class="btn-glossy-teal action-btn d-flex align-items-center" data-tooltip="View Candidate"
+                                               data-bs-toggle="modal"
+                                               th:attr="data-bs-target='#viewCandidateModal-' + ${applicant.id}">
+                                                <i class="bi bi-eye"></i>
+                                            </a>
+                                            <a th:href="@{|/app/portal/hr-recruitment/candidates/edit-candidate?id=${applicant.id}|}"
+                                               class="btn-glossy-teal action-btn d-flex align-items-center" data-tooltip="Edit Candidate">
+                                                <i class="bi bi-pen"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+                <!-- Main Content - END -->
+
+                <!-- Footer - START -->
+                <th:block th:insert="~{fragments/common/html-fragment-common-footer :: tteh-common-footer}"></th:block>
+                <!-- Footer - END -->
+            </main>
+
+        </div>
+
+        <th:block th:insert="~{fragments/common/html-fragment-common-js-scripts :: login-common-js}"></th:block>
+        <script th:src="@{/js/pages/portal/dashboard/tteh-dashboard-main-scripts.js}" type="text/javascript"></script>
+    </body>
+</html>

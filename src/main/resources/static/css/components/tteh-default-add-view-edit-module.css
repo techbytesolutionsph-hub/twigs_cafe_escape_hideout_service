@@ -21,8 +21,8 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: var(--client-primary);
-    color: white;
+    background: var(--green-700) !important;
+    color: var(--paper) !important;
     font-weight: 700;
 }
 

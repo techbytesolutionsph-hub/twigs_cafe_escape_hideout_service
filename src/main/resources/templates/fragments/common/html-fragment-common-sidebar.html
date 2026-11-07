@@ -150,56 +150,53 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                HR Management
+                HR Administration
             </div>
 
             <!-- HR Management -->
             <div class="nav-group">
-                <a href="#hrManagementSubmenu" class="nav-link nav-toggle collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="hrManagementSubmenu">
+                <a href="#hrManagementSubmenu" th:class="${nav == 'hris'} ? 'nav-link nav-toggle collapsed active' : 'nav-link nav-toggle collapsed'" data-toggle="collapse" aria-expanded="false" aria-controls="hrManagementSubmenu">
                     <i class="fa-solid fa-chart-pie"></i>
                     <span class="nav-label">HR Management</span>
                     <i class="fa-solid fa-chevron-down submenu-arrow"></i>
                 </a>
                 <div class="submenu" id="hrManagementSubmenu">
-                    <a href="#" class="submenu-link" data-page="HR Dashboard">
+                    <a th:href="@{/app/portal/hr-management}" class="submenu-link" data-page="HR Dashboard">
                         <i class="fa-solid fa-chart-pie"></i><span>HR Dashboard</span>
                     </a>
-                    <a href="#" class="submenu-link" data-page="Employee Management">
+                    <a th:href="@{/app/portal/hr-management/employee-management}" class="submenu-link" data-page="Employee Management">
                         <i class="fa-solid fa-users"></i><span>Employee Management</span>
                     </a>
-                    <a href="#" class="submenu-link" data-page="Employee Attendance">
+                    <a th:href="@{/app/portal/hr-management/employee-attendance}" class="submenu-link" data-page="Employee Attendance">
                         <i class="fa-solid fa-calendar-check"></i><span>Employee Attendance</span>
                     </a>
-                    <a href="#" class="submenu-link" data-page="Employee Leave">
+                    <a th:href="@{/app/portal/hr-management/employee-leave}" class="submenu-link" data-page="Employee Leave">
                         <i class="fa-solid fa-calendar-minus"></i><span>Employee Leave</span>
-                    </a>
-                    <a href="#" class="submenu-link" data-page="Employee Payroll">
-                        <i class="fa-solid fa-money-bill-wave"></i><span>Employee Payroll</span>
                     </a>
                 </div>
             </div>
 
             <!-- Recruitment -->
             <div class="nav-group">
-                <a href="#recruitmentSubmenu" class="nav-link nav-toggle collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="recruitmentSubmenu">
+                <a href="#recruitmentSubmenu" th:class="${nav == 'recruitment'} ? 'nav-link nav-toggle collapsed active' : 'nav-link nav-toggle collapsed'" data-toggle="collapse" aria-expanded="false" aria-controls="recruitmentSubmenu">
                     <i class="fa-solid fa-user-plus"></i>
                     <span class="nav-label">Recruitment</span>
                     <i class="fa-solid fa-chevron-down submenu-arrow"></i>
                 </a>
                 <div class="submenu" id="recruitmentSubmenu">
-                    <a href="#" class="submenu-link" data-page="Recruitment Dashboard">
+                    <a th:href="@{/app/portal/hr-recruitment}" class="submenu-link" data-page="Recruitment Dashboard">
                         <i class="fa-solid fa-chart-pie"></i><span>Recruitment Dashboard</span>
                     </a>
-                    <a href="#" class="submenu-link" data-page="Candidates">
+                    <a th:href="@{/app/portal/hr-recruitment/candidates}" class="submenu-link" data-page="Candidates">
                         <i class="fa-solid fa-users"></i><span>Candidates</span>
                     </a>
-                    <a href="#" class="submenu-link" data-page="Applicant Interview">
+                    <a th:href="@{/app/portal/hr-recruitment/applicant-interview}" class="submenu-link" data-page="Applicant Interview">
                         <i class="fa-solid fa-calendar-check"></i><span>Applicant Interview</span>
                     </a>
-                    <a href="#" class="submenu-link" data-page="Offer Management">
+                    <a th:href="@{/app/portal/hr-recruitment/offer-management}" class="submenu-link" data-page="Offer Management">
                         <i class="fa-solid fa-file-signature"></i><span>Offer Management</span>
                     </a>
-                    <a href="#" class="submenu-link" data-page="Employee Onboarding">
+                    <a th:href="@{/app/portal/hr-recruitment/employee-onboarding}" class="submenu-link" data-page="Employee Onboarding">
                         <i class="fa-solid fa-user-check"></i><span>Employee Onboarding</span>
                     </a>
                 </div>
@@ -207,19 +204,22 @@
 
             <!-- Payroll Management -->
             <div class="nav-group">
-                <a href="#payrollSubmenu" class="nav-link nav-toggle collapsed" data-toggle="collapse" aria-expanded="false" aria-controls="payrollSubmenu">
+                <a href="#payrollSubmenu" th:class="${nav == 'payroll'} ? 'nav-link nav-toggle collapsed active' : 'nav-link nav-toggle collapsed'" data-toggle="collapse" aria-expanded="false" aria-controls="payrollSubmenu">
                     <i class="fa-solid fa-money-check-dollar"></i>
                     <span class="nav-label">Payroll Management</span>
                     <i class="fa-solid fa-chevron-down submenu-arrow"></i>
                 </a>
                 <div class="submenu" id="payrollSubmenu">
-                    <a href="#" class="submenu-link" data-page="Payroll Processing">
+                    <a th:href="@{/app/portal/payroll-management}" class="submenu-link" data-page="Payroll Dashboard">
+                        <i class="fa-solid fa-chart-pie"></i><span>Payroll Dashboard</span>
+                    </a>
+                    <a th:href="@{/app/portal/payroll-management/processing}" class="submenu-link" data-page="Payroll Processing">
                         <i class="fa-solid fa-calculator"></i><span>Payroll Processing</span>
                     </a>
-                    <a href="#" class="submenu-link" data-page="Timesheets">
+                    <a th:href="@{/app/portal/payroll-management/timesheets}" class="submenu-link" data-page="Timesheets">
                         <i class="fa-solid fa-clock"></i><span>Timesheets</span>
                     </a>
-                    <a href="#" class="submenu-link" data-page="Payslips">
+                    <a th:href="@{/app/portal/payroll-management/payslips}" class="submenu-link" data-page="Payslips">
                         <i class="fa-solid fa-file-invoice-dollar"></i><span>Payslips</span>
                     </a>
                 </div>
